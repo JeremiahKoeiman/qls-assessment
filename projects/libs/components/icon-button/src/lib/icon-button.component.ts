@@ -6,20 +6,25 @@ import { observeProperty } from '@qls/utilities/rxjs';
 
 import { Observable, map, shareReplay } from 'rxjs';
 
-import { IconSize } from './icon.model';
+import { IconSize } from './icon-button.model';
 
 @Component({
   standalone: true,
   imports: [CommonModule, NgIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'qls-icon',
-  templateUrl: './icon.component.html'
+  selector: 'qls-icon-button',
+  templateUrl: './icon-button.component.html'
 })
-export class IconComponent {
+export class IconButtonComponent {
   /**
    * The name of the icon
    */
   @Input({ required: true }) public icon!: string;
+
+  /**
+   * Whether the icon button should be disabled
+   */
+  @Input() disabled = false;
 
   /**
    * Define the size of the icon. This defaults to the current font size.
@@ -27,7 +32,7 @@ export class IconComponent {
   @Input() public size: IconSize = 'lg';
 
   @Memoize public get iconSize$(): Observable<string> {
-    return observeProperty(this as IconComponent, 'size').pipe(
+    return observeProperty(this as IconButtonComponent, 'size').pipe(
       map(size => mapSizeToIconSize(size)),
       shareReplay(1)
     );
@@ -41,6 +46,9 @@ const mapSizeToIconSize = (size: IconSize): string => {
     case 'md':
       return '1rem';
     case 'lg':
+      return '1.25rem';
+    case 'xl':
+      return '1.5rem';
     default:
       return '1.25rem';
   }
