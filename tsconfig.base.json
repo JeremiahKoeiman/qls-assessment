@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.compiler-options.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      // Application
+      "#sd/app/*": ["./projects/apps/shipment-dashboard/src/app/*"],
+      "#sd/assets/*": ["./projects/apps/shipment-dashboard/src/assets/*"],
+      "#sd/env/*": ["./projects/apps/shipment-dashboard/src/environments/*"],
+
+      // Library
+      "@qls/*": ["./projects/libs/*"]
+    }
+  }
+}

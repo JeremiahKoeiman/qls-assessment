@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.prod.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc",
+    "types": []
+  },
+  "files": ["src/main.ts"],
+  "include": ["src/**/*.d.ts", "src/polyfills.ts"],
+  "exclude": ["**/test.ts", "src/**/*.spec.ts"]
+}

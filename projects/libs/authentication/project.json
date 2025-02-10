@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "@qls/authentication",
+  "sourceRoot": "projects/libs/authentication",
+  "prefix": "qls",
+  "projectType": "library",
+  "tags": ["scope:org-lib", "scope:shared"],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "outputs": ["{workspaceRoot}/dist/projects/libs/{projectName}"],
+      "options": {
+        "tsConfig": "{projectRoot}/tsconfig.lib.prod.json",
+        "project": "{projectRoot}/ng-package.json"
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"],
+        "maxWarnings": 0
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

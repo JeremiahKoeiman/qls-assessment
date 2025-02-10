@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.prod.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc",
+    "types": [],
+    "declarationMap": false
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  },
+  "exclude": ["**/*.spec.ts", "**/test.ts"],
+  "include": ["**/*.ts"]
+}

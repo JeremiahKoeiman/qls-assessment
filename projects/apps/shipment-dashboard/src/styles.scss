@@ -1,0 +1,39 @@
+/* Framework: Tailwind  */
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+
+/* Framework: Angular CDK  */
+@use '@angular/cdk/overlay-prebuilt.css';
+
+@use '@angular/material' as mat;
+
+/* Styling */
+@use './styling/main.scss';
+@use './assets/fonts/fonts.scss';
+
+@include mat.core();
+
+$basic-theme: mat.define-theme();
+
+html {
+  color-scheme: light;
+  @include mat.theme($basic-theme);
+  @include mat.all-component-themes($basic-theme);
+}
+
+// $violet-theme: mat.define-theme(
+//   (
+//     color: (
+//       theme-type: light,
+//       primary: mat.$violet-palette
+//     )
+//   )
+// );
+
+// @include mat.core();
+
+// html {
+//   @include mat.core-theme($violet-theme);
+//   @include mat.all-component-themes($violet-theme);
+// }

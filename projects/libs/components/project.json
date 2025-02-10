@@ -1,0 +1,40 @@
+{
+  "name": "@qls/components",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "projects/libs/components",
+  "prefix": "qls",
+  "tags": ["scope:org-lib", "scope:shared"],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "{projectRoot}/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "{projectRoot}/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "{projectRoot}/tsconfig.lib.dev.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "{projectRoot}/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    },
+    "lint": {
+      "executor": "@angular-eslint/builder:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"],
+        "maxWarnings": 0,
+        "eslintConfig": "{projectRoot}/.eslintrc.js"
+      }
+    }
+  }
+}
