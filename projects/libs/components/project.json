@@ -12,7 +12,13 @@
       "options": {
         "tsConfig": "{projectRoot}/tsconfig.lib.prod.json",
         "project": "{projectRoot}/ng-package.json"
-      }
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": ["@qls/utilities"]
+        }
+      ]
     },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
