@@ -1,32 +1,15 @@
 <div class="flex h-dvh max-h-dvh">
-  <div class="flex size-full flex-col overflow-x-hidden">
-    <!-- <mat-toolbar>
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Shipment dashboard</span>
-    </mat-toolbar>
+  <div class="flex size-full flex-col overflow-hidden">
+    <sd-top-bar (qlsClick)="toggleSidebar()"></sd-top-bar>
 
-    <mat-drawer-container>
-      <mat-drawer #drawer mode="side">side menu</mat-drawer>
-    </mat-drawer-container>
+    <div class="relative flex h-dvh">
+      @if (sidebarToggle$ | async) {
+        <sd-side-bar (qlsClick)="closeSidebar()"></sd-side-bar>
+      }
 
-    <mat-sidenav-container class="bg-fill-primary absolute bottom-0 left-0 right-0 top-0">
-      <mat-sidenav #drawer mode="over">
-        Sidenav content Sidenav content Sidenav content Sidenav content Sidenav content Sidenav content Sidenav content
-        Sidenav conten  t Sidenav content Sidenav content Sidenav content Sidenav content
-      </mat-sidenav>
-      <mat-sidenav-content>Main content</mat-sidenav-content>
-    </mat-sidenav-container> -->
-
-    <div class="bg-fill-primary flex px-4 py-2">
-      <qls-icon-button icon="heroBars3" class="icon-black"></qls-icon-button>
-    </div>
-
-    <div></div>
-
-    <div class="flex size-full flex-col overflow-auto">
-      <router-outlet />
+      <div class="flex size-full flex-col overflow-auto">
+        <router-outlet />
+      </div>
     </div>
   </div>
 </div>

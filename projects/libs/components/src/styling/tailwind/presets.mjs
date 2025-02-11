@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import colors, { black } from 'tailwindcss/colors';
+import colors, { black, neutral } from 'tailwindcss/colors';
 import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
@@ -40,15 +40,33 @@ module.exports = {
     extend: {
       backgroundColor: () => ({
         white: colors.white,
-        fill: {
-          DEFAULT: '#4a82eb',
+        surface: {
           primary: {
-            DEFAULT: '#4a82eb',
-            hover: '#3966B7'
+            DEFAULT: '#e4e4e4'
+          },
+          secondary: {
+            DEFAULT: '#ccdce7'
+          },
+          tertiary: {
+            DEFAULT: '#555555'
+          }
+        },
+        fill: {
+          primary: {
+            DEFAULT: '#2b469b',
+            subtle: '#2b469b',
+            emphasis: '#1d2f69'
+          },
+          secondary: {
+            DEFAULT: '#14a1f6'
+          },
+          tertiary: {
+            DEFAULT: '#0e7dbf'
           },
           info: {
             DEFAULT: '#56acec',
-            hover: '#4586BC'
+            subtle: '#56acec',
+            emphasis: '#4586BC'
           },
           success: {
             DEFAULT: '#8bbf49',
@@ -65,11 +83,29 @@ module.exports = {
         }
       }),
       borderColor: () => ({
-        focus: {
-          DEAFULT: '#4a82eb'
+        primary: {
+          DEFAULT: '#2b469b',
+        },
+        secondary: {
+          DEFAULT: '#14a1f6'
+        },
+        tertiary: {
+          DEFAULT: '#0e7dbf'
+        },
+        info: {
+          DEFAULT: '#56acec',
+        },
+        success: {
+          DEFAULT: '#8bbf49',
         },
         danger: {
-          DEFAULT: '#e05f5f'
+          DEFAULT: '#e05f5f',
+        },
+        warning: {
+          DEFAULT: '#ec9d56',
+        },
+        focus: {
+          DEAFULT: '#4a82eb'
         },
       }),
       textColor: () => ({
@@ -85,9 +121,6 @@ module.exports = {
         secondary: {
           DEFAULT: '#2a394f'
         },
-        danger: {
-          DEFAULT: '#e05f5f'
-        }
       }),
     }
   },
@@ -101,35 +134,35 @@ module.exports = {
           fontSize: '50px',
           fontWeight: '800',
           lineHeight: '70px',
-          color: `${theme('colors.black')}`
+          color: `${theme('colors.primary')}`
         },
         h2: {
           margin: '0',
           fontSize: '42px',
           fontWeight: '700',
           lineHeight: '60px',
-          color: `${theme('colors.black')}`
+          color: `${theme('colors.primary')}`
         },
         h3: {
           margin: '0',
           fontSize: '34px',
           fontWeight: '700',
           lineHeight: '50px',
-          color: `${theme('colors.black')}`
+          color: `${theme('colors.primary')}`
         },
         h4: {
           margin: '0',
           fontSize: '26px',
           fontWeight: '700',
           lineHeight: '50px',
-          color: `${theme('colors.black')}`
+          color: `${theme('colors.primary')}`
         },
         p: {
           margin: '0',
           fontSize: '16px',
           fontWeight: '300',
           lineHeight: '28px',
-          color: `${theme('colors.black')}`
+          color: `${theme('colors.primary')}`
         },
         tr: {
           fontSize: '14px',

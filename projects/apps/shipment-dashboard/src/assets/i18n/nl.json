@@ -2,5 +2,8 @@
   "COMMON": {
     "OK": "ok",
     "CANCEL": "annuleren"
+  },
+  "TOP-BAR": {
+    "HEADER": "Shipment dashboard"
   }
 }
