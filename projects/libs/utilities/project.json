@@ -10,6 +10,14 @@
       "executor": "@angular-devkit/build-angular:ng-packagr",
       "outputs": ["{workspaceRoot}/dist/projects/libs/{projectName}"],
       "options": {
+        "tsConfig": "{projectRoot}/tsconfig.lib.prod.json",
+        "project": "{projectRoot}/ng-package.json"
+      }
+    },
+    "TESTbuild": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "outputs": ["{workspaceRoot}/dist/projects/libs/{projectName}"],
+      "options": {
         "project": "{projectRoot}/ng-package.json"
       },
       "configurations": {

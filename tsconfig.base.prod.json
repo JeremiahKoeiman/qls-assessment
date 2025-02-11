@@ -8,8 +8,10 @@
       "#sd/assets/*": ["./dist/projects/apps/shipment-dashboard/src/assets/*"],
       "#sd/env/*": ["./dist/projects/apps/shipment-dashboard/src/environments/*"],
 
-      // Libs
-      "@qls/*": ["./dist/projects/libs/*"]
+      // Libraries
+      "@qls/authentication/*": ["./dist/projects/libs/authentication/*"],
+      "@qls/components/*": ["./dist/projects/libs/components/*"],
+      "@qls/utilities/*": ["./dist/projects/libs/utilities/*"]
     }
   }
 }

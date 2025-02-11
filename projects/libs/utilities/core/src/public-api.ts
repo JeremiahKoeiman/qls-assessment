@@ -1,5 +1,5 @@
 /*
- * Public API Surface of @zookeeper/utilities/core
+ * Public API Surface of @qls/utilities/core
  */
 
 export * from './lib/array-operations/move-item-in-array';

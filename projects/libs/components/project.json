@@ -7,19 +7,12 @@
   "tags": ["scope:org-lib", "scope:shared"],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/projects/libs/{projectName}"],
       "options": {
+        "tsConfig": "{projectRoot}/tsconfig.lib.prod.json",
         "project": "{projectRoot}/ng-package.json"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "{projectRoot}/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "{projectRoot}/tsconfig.lib.dev.json"
-        }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",

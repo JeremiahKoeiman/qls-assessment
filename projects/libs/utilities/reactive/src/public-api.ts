@@ -1,4 +1,4 @@
 /*
- * Public API Surface of @zookeeper/utilities/reactive
+ * Public API Surface of @qls/utilities/reactive
  */
 export * from './lib/memoize';

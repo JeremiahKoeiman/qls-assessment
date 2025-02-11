@@ -18,11 +18,6 @@
         "scripts": [],
         "assets": [
           {
-            "glob": "**/favicon.ico",
-            "input": "{projectRoot}/src",
-            "output": ""
-          },
-          {
             "glob": "**/*",
             "input": "{projectRoot}/src/assets",
             "output": "assets"
