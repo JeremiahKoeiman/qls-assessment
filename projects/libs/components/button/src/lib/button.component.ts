@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { UiTextPipe } from '@qls/utilities/i18n';
 import { Memoize } from '@qls/utilities/reactive';
 import { observeProperty } from '@qls/utilities/rxjs';
 
@@ -9,9 +10,9 @@ import { ButtonType } from './button.model';
 
 @Component({
   selector: 'qls-button',
-  imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './button.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [CommonModule, UiTextPipe]
 })
 export class ButtonComponent {
   /**
@@ -33,7 +34,7 @@ export class ButtonComponent {
     return this.buttonType$.pipe(
       map(buttonType => {
         const defaultClasses =
-          'w-full text-md text-white rounded-md flex items-center justify-center whitespace-nowrap select-none border transition-colors duration-75';
+          'w-full text-md text-white rounded-md flex items-center justify-center whitespace-nowrap select-none transition-colors duration-75 px-4 py-2';
 
         return `${defaultClasses} ${this.getButtonColor(buttonType)}`;
       })
