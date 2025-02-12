@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideCoreConfig(),
 
     /**
-     * AUthentication
+     * Authentication
      */
     provideAuthConfig(),
 
