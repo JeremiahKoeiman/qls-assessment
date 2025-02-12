@@ -1,6 +1,7 @@
 import { Provider, provideZoneChangeDetection } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading, withRouterConfig } from '@angular/router';
 
+import { provideHttpConfig } from './configuration/http/http-config.provider';
 import { provideRoutes } from './routes/routes.provider';
 
 export function provideCoreConfig(): Provider {
@@ -10,6 +11,9 @@ export function provideCoreConfig(): Provider {
 
     // Routing
     provideRouter([], withRouterConfig({ paramsInheritanceStrategy: 'always' }), withPreloading(PreloadAllModules)),
-    provideRoutes()
+    provideRoutes(),
+
+    // HTTP
+    provideHttpConfig()
   ];
 }
