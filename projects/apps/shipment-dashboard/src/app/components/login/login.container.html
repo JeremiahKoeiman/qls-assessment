@@ -1,0 +1,12 @@
+<div class="bg-surface-secondary flex h-screen w-screen items-center justify-center">
+  <div class="bg-fill-tertiary flex flex-col items-center justify-center gap-y-8 rounded-md p-6 shadow-md">
+    <p class="font-bold text-white">{{ 'LOGIN.HEADER' | transloco }}</p>
+
+    <form [formGroup]="formGroup" class="flex flex-col gap-y-4">
+      <input formControlName="email" type="text" [placeholder]="'COMMON.EMAIL-ADDRESS' | transloco" />
+      <input formControlName="password" type="password" [placeholder]="'COMMON.PASSWORD' | transloco" />
+    </form>
+
+    <qls-button [label]="'LOGIN.PRIMARY-CTA' | transloco" (click)="login()" />
+  </div>
+</div>
