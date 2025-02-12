@@ -6,7 +6,7 @@
       // Application
       "#sd/app/*": ["./projects/apps/shipment-dashboard/src/app/*"],
       "#sd/assets/*": ["./projects/apps/shipment-dashboard/src/assets/*"],
-      "#sd/env/*": ["./projects/apps/shipment-dashboard/src/environments/*"],
+      "#sd/environment": ["./projects/apps/shipment-dashboard/src/environments/environment.ts"],
 
       // Libraries
       "@qls/authentication/*": ["./projects/libs/authentication/*"],

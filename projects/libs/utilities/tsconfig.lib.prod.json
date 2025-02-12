@@ -2,7 +2,7 @@
   "extends": "./tsconfig.base.prod.json",
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
-    "types": [],
+    "types": ["node"],
     "declarationMap": false
   },
   "angularCompilerOptions": {

@@ -37,7 +37,7 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "{projectRoot}/src/environments/environment.dev.ts",
+              "replace": "{projectRoot}/src/environments/environment.ts",
               "with": "{projectRoot}/src/environments/environment.prod.ts"
             }
           ],
@@ -69,6 +69,12 @@
           }
         },
         "development": {
+          "fileReplacements": [
+            {
+              "replace": "{projectRoot}/src/environments/environment.ts",
+              "with": "{projectRoot}/src/environments/environment.dev.ts"
+            }
+          ],
           "buildOptimizer": false,
           "optimization": false,
           "vendorChunk": true,

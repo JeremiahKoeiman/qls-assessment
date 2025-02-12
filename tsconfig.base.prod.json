@@ -6,7 +6,7 @@
       // Applicatopn
       "#sd/app/*": ["./dist/projects/apps/shipment-dashboard/src/app/*"],
       "#sd/assets/*": ["./dist/projects/apps/shipment-dashboard/src/assets/*"],
-      "#sd/env/*": ["./dist/projects/apps/shipment-dashboard/src/environments/*"],
+      "#sd/environment": ["./dist/projects/apps/shipment-dashboard/src/environments/environment.ts"],
 
       // Libraries
       "@qls/authentication/*": ["./dist/projects/libs/authentication/*"],

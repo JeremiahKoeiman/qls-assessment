@@ -2,6 +2,10 @@
   "name": "@qls/workspace",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "22.13.1",
+    "npm": "10.9.2"
+  },
   "scripts": {},
   "private": true,
   "dependencies": {
@@ -57,7 +61,7 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@types/jest": "^29.5.12",
-    "@types/node": "18.16.9",
+    "@types/node": "22.13.1",
     "@typescript-eslint/utils": "^8.19.0",
     "angular-eslint": "^19.0.2",
     "autoprefixer": "^10.4.0",
