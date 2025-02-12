@@ -13,4 +13,5 @@ export * from './lib/string/capitalize';
 export * from './lib/string/remove-non-numbers';
 export * from './lib/string/trim';
 export * from './lib/string/uncapitalize';
+export * from './lib/string/hashing';
 export * from './lib/types/entity';
