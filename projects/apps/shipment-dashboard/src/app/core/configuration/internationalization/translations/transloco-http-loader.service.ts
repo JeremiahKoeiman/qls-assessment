@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Translation, TranslocoLoader } from '@jsverse/transloco';
-import { AnonymousHttpClient } from '@qls/authentication/http';
 
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
@@ -10,7 +10,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
   private cache$: Observable<Translation> | null = null;
   private cachedLang: string | null = null;
 
-  private readonly http = inject(AnonymousHttpClient);
+  private readonly http = inject(HttpClient);
 
   public getTranslation(lang: string): Observable<Translation> {
     if (!this.cache$ || this.cachedLang !== lang) {
