@@ -1,9 +1,15 @@
 {
   "COMMON": {
     "OK": "ok",
-    "CANCEL": "annuleren"
+    "CANCEL": "annuleren",
+    "EMAIL-ADDRESS": "E-mail adres",
+    "PASSWORD": "Wachtwoord"
   },
   "TOP-BAR": {
     "HEADER": "Shipment dashboard"
+  },
+  "LOGIN": {
+    "HEADER": "Inloggen",
+    "PRIMARY-CTA": "Log in"
   }
 }
