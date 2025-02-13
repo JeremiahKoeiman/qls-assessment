@@ -1,7 +1,8 @@
 import { Provider, provideZoneChangeDetection } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading, withRouterConfig } from '@angular/router';
 
-import { provideHttpConfig } from './configuration/http/http-config.provider';
+import { provideHttpConfig } from '#sd/app/core/configuration/http/http-config.provider';
+
 import { provideRoutes } from './routes/routes.provider';
 
 export function provideCoreConfig(): Provider {
