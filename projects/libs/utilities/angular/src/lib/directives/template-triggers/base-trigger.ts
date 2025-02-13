@@ -26,28 +26,28 @@ const overlayPositions: ConnectedPosition[] = [
     overlayX: 'start',
     originY: 'bottom',
     overlayY: 'top',
-    offsetY: 4
+    offsetY: 8
   },
   {
     originX: 'end',
     overlayX: 'end',
     originY: 'bottom',
     overlayY: 'top',
-    offsetY: 4
+    offsetY: 8
   },
   {
     originX: 'start',
     overlayX: 'start',
     originY: 'top',
     overlayY: 'bottom',
-    offsetY: -4
+    offsetY: -8
   },
   {
     originX: 'end',
     overlayX: 'end',
     originY: 'top',
     overlayY: 'bottom',
-    offsetY: -4
+    offsetY: -8
   }
 ];
 

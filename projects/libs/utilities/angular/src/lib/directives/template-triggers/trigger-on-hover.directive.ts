@@ -1,11 +1,9 @@
 import { Directive, HostListener, Input, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { notUndefined } from '@qls/utilities/core';
 
-import { Subject, debounceTime, distinctUntilChanged, filter, fromEvent, merge, switchMap } from 'rxjs';
+import { Subject, distinctUntilChanged, filter, fromEvent, merge, switchMap } from 'rxjs';
 
 import { BaseOverlayTrigger, TriggerConfig } from './base-trigger';
-
-const DEBOUNCE_HOVER_TIME = 200;
 
 @Directive({
   selector: '[triggerOverlayOnHover]',
@@ -87,7 +85,7 @@ export class TriggerOverlayOnHoverDirective extends BaseOverlayTrigger implement
   private triggerOpenStateOnHoverChanges(): void {
     this.subscription.add(
       merge(this.hoverStateTriggerSubject, this.hoverStateTargetSubject)
-        .pipe(debounceTime(DEBOUNCE_HOVER_TIME), distinctUntilChanged())
+        .pipe(distinctUntilChanged())
         .subscribe(state => {
           this.triggerOpenStateSubject.next(state);
         })
