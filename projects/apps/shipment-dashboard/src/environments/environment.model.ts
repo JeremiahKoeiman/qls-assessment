@@ -4,4 +4,5 @@ export interface Environment {
   companyId: string;
   brandId: string;
   shipmentReference: string;
+  bearerToken: string;
 }
