@@ -1,0 +1,9 @@
+<div class="p-4">
+  <div>THIS IS THE OVERVIEW COMPONENT!!!</div>
+
+  <form [formGroup]="formGroup">
+    <qls-input [control]="formGroup.controls.email" label="Email" placeholder="Email" />
+    <qls-textarea [control]="formGroup.controls.area" label="Area" placeholder="Area" [rows]="3" />
+    <qls-select [control]="formGroup.controls.animal" [options]="mappedAnimals" label="Animals" placeholder="Animals" />
+  </form>
+</div>

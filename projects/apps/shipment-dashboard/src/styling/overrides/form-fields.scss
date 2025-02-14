@@ -2,7 +2,7 @@
 
 @include mat.core();
 
-mat-form-field[appearance='outline'] {
+:root {
   @include mat.form-field-overrides(
     (
       outlined-label-text-color: theme('textColor.primary.DEFAULT'),
@@ -19,6 +19,12 @@ mat-form-field[appearance='outline'] {
       outlined-disabled-input-text-color: theme('textColor.secondary.DEFAULT')
     )
   );
+
+  @include mat.select-overrides(
+    (
+      focused-arrow-color: theme('borderColor.focus.DEFAULT')
+    )
+  );
 }
 
 .mat-mdc-form-field-error-wrapper {
@@ -27,4 +33,11 @@ mat-form-field[appearance='outline'] {
 
 mat-error {
   color: theme('borderColor.danger.DEFAULT') !important;
+}
+
+.mat-mdc-option:focus.mdc-list-item,
+.mat-mdc-option-active,
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple),
+.mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background-color: theme('backgroundColor.surface.secondary.DEFAULT') !important;
 }

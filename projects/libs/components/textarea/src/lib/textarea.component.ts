@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, forwardRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, forwardRef } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -13,6 +13,7 @@ import { Observable, shareReplay } from 'rxjs';
   selector: 'qls-textarea',
   templateUrl: './textarea.component.html',
   imports: [CommonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -25,7 +26,7 @@ export class TextareaComponent extends BaseFormValidationHandler {
   /**
    * The label to display
    */
-  @Input({ required: true }) public label: string;
+  @Input() public label: string;
 
   /**
    * The formcontrol
