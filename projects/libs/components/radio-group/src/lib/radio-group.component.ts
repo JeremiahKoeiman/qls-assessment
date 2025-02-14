@@ -23,7 +23,7 @@ export interface Radio<T> {
 })
 export class RadioGroupComponent<T> {
   /**
-   * The label to display
+   * The radios to render
    */
   @Input() public radios: Radio<T>[] = [];
 
