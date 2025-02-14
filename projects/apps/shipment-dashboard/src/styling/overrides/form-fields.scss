@@ -39,6 +39,19 @@
       state-layer-size: 0
     )
   );
+
+  @include mat.radio-overrides(
+    (
+      state-layer-size: 0,
+      label-text-color: theme('textColor.primary.DEFAULT'),
+      ripple-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      checked-ripple-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-hover-icon-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-focus-icon-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-icon-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-pressed-icon-color: theme('backgroundColor.fill.primary.DEFAULT')
+    )
+  );
 }
 
 .mat-mdc-form-field-error-wrapper {

@@ -5,6 +5,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { CheckboxComponent } from '@qls/components/checkbox';
 import { InputComponent } from '@qls/components/input';
+import { Radio, RadioGroupComponent } from '@qls/components/radio-group';
 import { Option, SelectComponent } from '@qls/components/select';
 import { TextareaComponent } from '@qls/components/textarea';
 
@@ -22,7 +23,8 @@ import { TextareaComponent } from '@qls/components/textarea';
     SelectComponent,
     MatOptionModule,
     MatSelectModule,
-    CheckboxComponent
+    CheckboxComponent,
+    RadioGroupComponent
   ]
 })
 export class OverviewComponent implements OnInit {
@@ -32,7 +34,8 @@ export class OverviewComponent implements OnInit {
     email: new FormControl('', [Validators.required]),
     area: new FormControl('', [Validators.required]),
     animal: new FormControl<Animal | null>(null, Validators.required),
-    checkbox: new FormControl<boolean>(false)
+    checkbox: new FormControl<boolean>(false),
+    radio: new FormControl<boolean>(false)
   });
 
   ngOnInit(): void {
@@ -48,6 +51,12 @@ export class OverviewComponent implements OnInit {
     { name: 'Cat', sound: 'Meow!' },
     { name: 'Cow', sound: 'Moo!' },
     { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' }
+  ];
+
+  public radios: Radio<number>[] = [
+    { label: 'Radio 1', value: 1 },
+    { label: 'Radio 2', value: 2 },
+    { label: 'Radio 3', value: 3 }
   ];
 
   public mappedAnimals = this.mapAnimalsToOption(this.animals);

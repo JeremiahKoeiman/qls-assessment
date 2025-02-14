@@ -46,7 +46,7 @@ export class SelectComponent<T> extends BaseFormValidationHandler {
   /**
    * The options of the select
    */
-  @Input({ required: true }) public options: Option<T>[];
+  @Input({ required: true }) public options: Option<T>[] = [];
 
   @Memoize protected get control$(): Observable<FormControl> {
     return observeProperty(this as SelectComponent<T>, 'control').pipe(shareReplay(1));
