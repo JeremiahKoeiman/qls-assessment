@@ -1,6 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
 
-import { provideAuthConfig } from './core/configuration/authentication/authentication-config.provider';
+import { provideAuthConfig } from '#sd/app/core/configuration/authentication/authentication-config.provider';
+
 import { provideInternationalizationConfig } from './core/configuration/internationalization/internationalization-config.provider';
 import { provideUiConfig } from './core/configuration/ui/ui-config.provider';
 import { provideCoreConfig } from './core/core-config.provider';
