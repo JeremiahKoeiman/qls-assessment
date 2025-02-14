@@ -3,7 +3,14 @@
     <mat-label>{{ label }}</mat-label>
   }
 
-  <input matInput [placeholder]="placeholder" [formControl]="control" (blur)="handleBlur()" />
+  <textarea
+    class="resize-none"
+    matInput
+    [rows]="rows"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    (blur)="handleBlur()"
+  ></textarea>
 
   @if (control.invalid) {
     <mat-error>{{ errorMessage$ | async }}</mat-error>

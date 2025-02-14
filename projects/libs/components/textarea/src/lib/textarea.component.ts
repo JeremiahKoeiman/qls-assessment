@@ -10,18 +10,18 @@ import { observeProperty } from '@qls/utilities/rxjs';
 import { Observable, shareReplay } from 'rxjs';
 
 @Component({
-  selector: 'qls-input',
-  templateUrl: './input.component.html',
+  selector: 'qls-textarea',
+  templateUrl: './textarea.component.html',
   imports: [CommonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => TextareaComponent),
       multi: true
     }
   ]
 })
-export class InputComponent extends BaseFormValidationHandler {
+export class TextareaComponent extends BaseFormValidationHandler {
   /**
    * The label to display
    */
@@ -33,11 +33,16 @@ export class InputComponent extends BaseFormValidationHandler {
   @Input() public control: FormControl;
 
   /**
+   * The rows of the textarea
+   */
+  @Input() public rows = 1;
+
+  /**
    * The placeholder of the input
    */
   @Input() public placeholder?: string;
 
   @Memoize protected get control$(): Observable<FormControl> {
-    return observeProperty(this as InputComponent, 'control').pipe(shareReplay(1));
+    return observeProperty(this as TextareaComponent, 'control').pipe(shareReplay(1));
   }
 }

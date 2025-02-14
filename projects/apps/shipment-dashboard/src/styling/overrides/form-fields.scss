@@ -7,8 +7,8 @@ mat-form-field[appearance='outline'] {
     (
       outlined-label-text-color: theme('textColor.primary.DEFAULT'),
       outlined-hover-label-text-color: theme('textColor.primary.DEFAULT'),
-      outlined-focus-outline-color: theme('borderColor.focus.DEAFULT'),
-      outlined-focus-label-text-color: theme('textColor.primary.DEFAULT'),
+      outlined-focus-outline-color: theme('borderColor.focus.DEFAULT'),
+      outlined-focus-label-text-color: theme('textColor.tertiary.DEFAULT'),
       outlined-error-outline-color: theme('borderColor.danger.DEFAULT'),
       outlined-error-focus-label-text-color: theme('borderColor.danger.DEFAULT'),
       outlined-error-label-text-color: theme('borderColor.danger.DEFAULT'),

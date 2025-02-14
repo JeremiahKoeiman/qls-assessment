@@ -105,7 +105,7 @@ module.exports = {
           DEFAULT: '#ec9d56',
         },
         focus: {
-          DEAFULT: '#4a82eb'
+          DEFAULT: '#4a82eb'
         }
       }),
       textColor: () => ({
@@ -121,6 +121,9 @@ module.exports = {
         secondary: {
           DEFAULT: '#2a394f'
         },
+        tertiary: {
+          DEFAULT: '#4a82eb'
+        }
       }),
     }
   },
