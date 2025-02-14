@@ -12,3 +12,6 @@ export * from './lib/to-string/to-string.pipe';
 // Animations
 export * from './lib/animations/fade-in.animation';
 export * from './lib/animations/fade-out.animation';
+
+// Forms
+export * from './lib/forms/base-form-validation-handler';

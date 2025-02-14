@@ -16,7 +16,6 @@ html {
 *:not(span) {
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
-  border-style: solid; /* 2 */
   border-color: #e5e7eb; /* theme('borderColor.DEFAULT', currentColor); /* 2 */
 }
 
@@ -25,34 +24,9 @@ html {
 */
 body {
   margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  background-color: theme('backgroundColor.surface.primary.DEFAULT');
   /* --scroll-color: gray; */
 }
-
-/*
-  Create custom scroll bar
-*/
-
-/* ::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-  background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-color);
-  border: 3px solid transparent;
-  border-radius: 8px;
-}
-
-.overflow-auto {
-  --scroll-color: transparent;
-} */
 
 /*
   1. Add the correct height in Firefox.

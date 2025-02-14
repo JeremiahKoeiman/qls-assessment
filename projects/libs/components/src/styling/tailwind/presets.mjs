@@ -106,7 +106,7 @@ module.exports = {
         },
         focus: {
           DEAFULT: '#4a82eb'
-        },
+        }
       }),
       textColor: () => ({
         white: {
