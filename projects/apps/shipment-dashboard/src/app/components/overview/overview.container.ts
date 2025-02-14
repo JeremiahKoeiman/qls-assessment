@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { CheckboxComponent } from '@qls/components/checkbox';
 import { InputComponent } from '@qls/components/input';
 import { Option, SelectComponent } from '@qls/components/select';
 import { TextareaComponent } from '@qls/components/textarea';
@@ -20,7 +21,8 @@ import { TextareaComponent } from '@qls/components/textarea';
     TextareaComponent,
     SelectComponent,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    CheckboxComponent
   ]
 })
 export class OverviewComponent implements OnInit {
@@ -29,7 +31,8 @@ export class OverviewComponent implements OnInit {
   public formGroup = new FormGroup({
     email: new FormControl('', [Validators.required]),
     area: new FormControl('', [Validators.required]),
-    animal: new FormControl<Animal | null>(null, Validators.required)
+    animal: new FormControl<Animal | null>(null, Validators.required),
+    checkbox: new FormControl<boolean>(false)
   });
 
   ngOnInit(): void {

@@ -25,6 +25,20 @@
       focused-arrow-color: theme('borderColor.focus.DEFAULT')
     )
   );
+
+  @include mat.checkbox-overrides(
+    (
+      label-text-color: theme('textColor.primary.DEFAULT'),
+      selected-hover-icon-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-focus-icon-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-focus-state-layer-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-icon-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      unselected-hover-state-layer-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-hover-state-layer-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      unselected-pressed-state-layer-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      state-layer-size: 0
+    )
+  );
 }
 
 .mat-mdc-form-field-error-wrapper {
