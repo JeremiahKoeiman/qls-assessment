@@ -7,16 +7,16 @@ export const appRoutes: Route[] = [
     resolve: {
       translationScope: languageScopeResolver
     },
-    loadComponent: () => import('#sd/app/components/app-wrapper/app-wrapper.component').then(c => c.AppWrapperComponent),
+    loadComponent: () => import('#sd/app/features/components/app-wrapper/app-wrapper.component').then(c => c.AppWrapperComponent),
     children: [
       {
         path: '',
-        loadComponent: () => import('#sd/app/features/overview/overview.container').then(c => c.OverviewComponent)
+        loadComponent: () => import('#sd/app/features/containers/overview/overview.container').then(c => c.OverviewComponent)
       }
     ]
   },
   {
     path: '**',
-    loadComponent: () => import('#sd/app/features/page-not-found/page-not-found.page').then(c => c.PageNotFoundComponent)
+    loadComponent: () => import('#sd/app/features/pages/page-not-found/page-not-found.page').then(c => c.PageNotFoundComponent)
   }
 ];
