@@ -1,6 +1,17 @@
 {
   "COMMON": {
-    "OK": "ok",
-    "CANCEL": "cancel"
+    "EMAIL-ADDRESS": "Email address",
+    "PASSWORD": "Password"
+  },
+  "VALIDATION": {
+    "REQUIRED": "This field is required",
+    "EMAIL": "Invalid email address"
+  },
+  "TOP-BAR": {
+    "HEADER": "Shipment dashboard"
+  },
+  "LOGIN": {
+    "HEADER": "Login",
+    "PRIMARY-CTA": "Log in"
   }
 }

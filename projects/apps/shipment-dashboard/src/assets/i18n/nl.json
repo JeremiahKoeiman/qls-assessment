@@ -1,9 +1,11 @@
 {
   "COMMON": {
-    "OK": "ok",
-    "CANCEL": "annuleren",
     "EMAIL-ADDRESS": "E-mail adres",
     "PASSWORD": "Wachtwoord"
+  },
+  "VALIDATION": {
+    "REQUIRED": "Dit veld is verplicht",
+    "EMAIL": "Ongeldige e-mail adres"
   },
   "TOP-BAR": {
     "HEADER": "Shipment dashboard"
