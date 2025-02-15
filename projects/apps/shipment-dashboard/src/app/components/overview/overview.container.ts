@@ -7,6 +7,7 @@ import { CheckboxComponent } from '@qls/components/checkbox';
 import { InputComponent } from '@qls/components/input';
 import { Radio, RadioGroupComponent } from '@qls/components/radio-group';
 import { Option, SelectComponent } from '@qls/components/select';
+import { SnackbarComponent } from '@qls/components/snackbar';
 import { SwitchComponent } from '@qls/components/switch';
 import { TextareaComponent } from '@qls/components/textarea';
 
@@ -26,7 +27,8 @@ import { TextareaComponent } from '@qls/components/textarea';
     MatSelectModule,
     CheckboxComponent,
     RadioGroupComponent,
-    SwitchComponent
+    SwitchComponent,
+    SnackbarComponent
   ]
 })
 export class OverviewComponent implements OnInit {

@@ -10,8 +10,8 @@ export * from './lib/directives/template-triggers/trigger-on-hover.directive';
 export * from './lib/to-string/to-string.pipe';
 
 // Animations
-export * from './lib/animations/fade-in.animation';
-export * from './lib/animations/fade-out.animation';
+export * from './lib/animations/slide-in.animation';
+export * from './lib/animations/slide-out.animation';
 
 // Forms
 export * from './lib/forms/base-form-validation-handler';
