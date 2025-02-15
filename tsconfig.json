@@ -10,7 +10,6 @@
     { "path": "./projects/apps/shipment-dashboard/tsconfig.editor.json" },
 
     // Libs
-    { "path": "./projects/libs/authentication/tsconfig.editor.json" },
     { "path": "./projects/libs/components/tsconfig.editor.json" },
     { "path": "./projects/libs/utilities/tsconfig.editor.json" }
   ]

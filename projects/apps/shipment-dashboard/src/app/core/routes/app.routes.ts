@@ -11,12 +11,12 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadComponent: () => import('#sd/app/components/overview/overview.container').then(c => c.OverviewComponent)
+        loadComponent: () => import('#sd/app/features/overview/overview.container').then(c => c.OverviewComponent)
       }
     ]
   },
   {
     path: '**',
-    loadComponent: () => import('#sd/app/components/page-not-found/page-not-found.page').then(c => c.PageNotFoundComponent)
+    loadComponent: () => import('#sd/app/features/page-not-found/page-not-found.page').then(c => c.PageNotFoundComponent)
   }
 ];
