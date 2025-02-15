@@ -52,6 +52,33 @@
       selected-pressed-icon-color: theme('backgroundColor.fill.primary.DEFAULT')
     )
   );
+
+  @include mat.slide-toggle-overrides(
+    (
+      state-layer-size: 0,
+      pressed-handle-size: 12px,
+      track-width: 40px,
+      track-height: 22px,
+      track-outline-width: 0,
+      selected-handle-size: 12px,
+      selected-focus-track-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-hover-track-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-pressed-track-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-track-color: theme('backgroundColor.fill.primary.DEFAULT'),
+      selected-focus-handle-color: theme('backgroundColor.white'),
+      selected-pressed-handle-color: theme('backgroundColor.white'),
+      unselected-handle-size: 12px,
+      unselected-handle-horizontal-margin: 0 5px,
+      unselected-track-color: #d3d3d3,
+      unselected-hover-track-color: #d3d3d3,
+      unselected-focus-track-color: #d3d3d3,
+      handle-surface-color: theme('backgroundColor.white'),
+      unselected-focus-handle-color: theme('backgroundColor.white'),
+      unselected-handle-color: theme('backgroundColor.white'),
+      unselected-hover-handle-color: theme('backgroundColor.white'),
+      unselected-pressed-handle-color: theme('backgroundColor.white')
+    )
+  );
 }
 
 .mat-mdc-form-field-error-wrapper {

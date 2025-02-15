@@ -7,6 +7,7 @@ import { CheckboxComponent } from '@qls/components/checkbox';
 import { InputComponent } from '@qls/components/input';
 import { Radio, RadioGroupComponent } from '@qls/components/radio-group';
 import { Option, SelectComponent } from '@qls/components/select';
+import { SwitchComponent } from '@qls/components/switch';
 import { TextareaComponent } from '@qls/components/textarea';
 
 @Component({
@@ -24,7 +25,8 @@ import { TextareaComponent } from '@qls/components/textarea';
     MatOptionModule,
     MatSelectModule,
     CheckboxComponent,
-    RadioGroupComponent
+    RadioGroupComponent,
+    SwitchComponent
   ]
 })
 export class OverviewComponent implements OnInit {
@@ -35,7 +37,8 @@ export class OverviewComponent implements OnInit {
     area: new FormControl('', [Validators.required]),
     animal: new FormControl<Animal | null>(null, Validators.required),
     checkbox: new FormControl<boolean>(false),
-    radio: new FormControl<boolean>(false)
+    radio: new FormControl<boolean>(false),
+    switch: new FormControl<boolean>(true)
   });
 
   ngOnInit(): void {
