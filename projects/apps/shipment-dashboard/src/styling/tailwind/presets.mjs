@@ -31,7 +31,6 @@ const generateColors = (colors, prefix) => {
 };
 
 module.exports = {
-  important: true,
   theme: {
     iconColor: () => ({
       white: colors.white,
@@ -137,90 +136,45 @@ module.exports = {
           fontSize: '50px',
           fontWeight: '800',
           lineHeight: '70px',
-          color: `${theme('colors.primary')}`
+          color: `${theme('textColor.primary')}`
         },
         h2: {
           margin: '0',
           fontSize: '42px',
           fontWeight: '700',
           lineHeight: '60px',
-          color: `${theme('colors.primary')}`
+          color: `${theme('textColor.primary')}`
         },
         h3: {
           margin: '0',
           fontSize: '34px',
           fontWeight: '700',
           lineHeight: '50px',
-          color: `${theme('colors.primary')}`
+          color: `${theme('textColor.primary')}`
         },
         h4: {
           margin: '0',
           fontSize: '26px',
           fontWeight: '700',
           lineHeight: '50px',
-          color: `${theme('colors.primary')}`
+          color: `${theme('textColor.primary')}`
         },
         p: {
           margin: '0',
           fontSize: '16px',
           fontWeight: '300',
           lineHeight: '28px',
-          color: `${theme('colors.primary')}`
-        },
-        tr: {
-          fontSize: '14px',
-          backgroundColor: '#FFF',
-          textAlign: 'start',
-          whiteSpace: 'nowrap',
-          cursor: 'pointer',
-          'td:first-child': {
-            paddingLeft: '24px'
-          },
-          outlineOffset: '0px',
-          outlineColor: theme('colors.violet.700')
-        },
-        thead: {
-          backgroundColor: '#FFF',
-          outline: `1px solid ${theme('colors.gray.200')}`,
-          'th:first-child': {
-            paddingLeft: '24px'
-          },
-          '& tr': {
-            display: 'block'
-          },
-          '& th': {
-            fontWeight: '500',
-            lineHeight: '16px',
-            color: '#6B7280',
-            minWidth: '16px',
-            padding: '12px'
-          }
-        },
-        td: {
-          fontWeight: '400',
-          lineHeight: '20px',
-          color: '#111827',
-          minWidth: '16px',
-          padding: '14px 12px'
-        },
-        tbody: {
-          '& tr': {
-            borderBottom: `1px solid ${theme('colors.gray.200')}`,
-            '&:hover': {
-              backgroundColor: theme('colors.gray.50')
-            }
-          },
-          'td:has(jex-icon-button)': {
-            padding: '0px !important',
-            width: '48px'
-          }
+          color: `${theme('textColor.primary')}`
         },
         a: {
           fontSize: '14px',
-          color: theme('colors.violet.600'),
+          color: theme('textColor.primary'),
           textDecoration: 'none',
           '&:hover': {
-            borderBottom: `1px solid ${theme('colors.violet.600')}`
+            borderBottom: `1px solid ${theme('textColor.primary')}`
+          },
+          '&:visited': {
+            color: theme('textColor.primary'),
           }
         }
       });
