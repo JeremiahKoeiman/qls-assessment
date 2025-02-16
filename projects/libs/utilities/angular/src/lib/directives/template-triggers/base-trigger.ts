@@ -21,33 +21,37 @@ import {
 export type TriggerConfig = Omit<OverlayConfig, 'direction' | 'scrollStrategy' | 'positionStrategy'>;
 
 const overlayPositions: ConnectedPosition[] = [
+  // Top
   {
-    originX: 'start',
-    overlayX: 'start',
-    originY: 'bottom',
-    overlayY: 'top',
-    offsetY: 8
-  },
-  {
-    originX: 'end',
-    overlayX: 'end',
-    originY: 'bottom',
-    overlayY: 'top',
-    offsetY: 8
-  },
-  {
-    originX: 'start',
-    overlayX: 'start',
+    originX: 'center',
+    overlayX: 'center',
     originY: 'top',
     overlayY: 'bottom',
     offsetY: -8
   },
+  // Bottom
+  {
+    originX: 'center',
+    overlayX: 'center',
+    originY: 'bottom',
+    overlayY: 'top',
+    offsetY: 8
+  },
+  // Right
   {
     originX: 'end',
+    overlayX: 'start',
+    originY: 'center',
+    overlayY: 'center',
+    offsetX: 8
+  },
+  // Left
+  {
+    originX: 'start',
     overlayX: 'end',
-    originY: 'top',
-    overlayY: 'bottom',
-    offsetY: -8
+    originY: 'center',
+    overlayY: 'center',
+    offsetX: -8
   }
 ];
 

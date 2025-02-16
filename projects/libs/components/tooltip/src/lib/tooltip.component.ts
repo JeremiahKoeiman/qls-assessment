@@ -9,8 +9,6 @@ import { Observable, map, shareReplay } from 'rxjs';
 
 import { TooltipType } from './tooltip.model';
 
-export type TooltipPosition = 'top' | 'bottom' | 'right' | 'left';
-
 @Component({
   standalone: true,
   imports: [CommonModule, OverlayModule, PortalModule],
