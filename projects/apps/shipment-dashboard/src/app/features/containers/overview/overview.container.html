@@ -1,7 +1,4 @@
-<div class="p-4">
-  <div>THIS IS THE OVERVIEW COMPONENT!!!</div>
-
-  <form [formGroup]="formGroup">
+<!-- <form [formGroup]="formGroup">
     <qls-input [control]="formGroup.controls.email" label="Email" placeholder="Email" />
     <qls-textarea [control]="formGroup.controls.area" label="Area" placeholder="Area" [rows]="3" />
     <qls-select [control]="formGroup.controls.animal" [options]="mappedAnimals" label="Animals" placeholder="Animals" />
@@ -12,5 +9,20 @@
 
   <qls-snackbar message="This is a success snackbar" alertStyle="success" />
   <qls-snackbar message="This is a warning snackbar" alertStyle="warning" />
-  <qls-snackbar message="This is a danger snackbar" alertStyle="danger" />
+  <qls-snackbar message="This is a danger snackbar" alertStyle="danger" /> -->
+
+@if(isLoading$ | async) {
+<div class="flex h-dvh w-full items-center justify-center">
+  <qls-spinner />
 </div>
+}
+
+<sd-shipments-table [dataSource]="dataSource$ | async" />
+
+@if(pagination$ | async; as pagination) {
+<qls-pagination
+  [length]="(pagination$ | async).count"
+  [pageSize]="(pagination$ | async).limit"
+  (pageChange)="handlePageChange($event)"
+/>
+}

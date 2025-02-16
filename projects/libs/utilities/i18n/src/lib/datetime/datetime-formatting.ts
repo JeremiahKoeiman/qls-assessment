@@ -4,7 +4,7 @@ export const DATETIME_FORMATS = {
   input: 'dd-MM-yyyy',
   urlDateTime: 'yyyy-MM-ddTHH:mm:ss',
   time: 'HH:mm',
-  tableHeader: 'dd-MM',
+  tableHeader: 'dd-MM-yyyy',
   slashShort: 'dd-MM-yyyy',
   monthLong: 'MMMM yyyy',
   monthShort: 'MMM yyyy'
