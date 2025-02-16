@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+:root {
+  @include mat.table-overrides(
+    (
+      row-item-container-height: 40px,
+      row-item-label-text-color: theme('textColor.primary.DEFAULT'),
+      header-headline-color: theme('textColor.primary.DEFAULT'),
+      header-headline-size: 16px,
+      header-headline-weight: 700
+    )
+  );
+}

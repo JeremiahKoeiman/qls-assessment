@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+:root {
+  @include mat.paginator-overrides(
+    (
+      container-text-color: theme('textColor.primary.DEFAULT')
+    )
+  );
+}
+
+.mat-mdc-paginator {
+  border-top: 2px solid theme('borderColor.primary.DEFAULT');
+}
