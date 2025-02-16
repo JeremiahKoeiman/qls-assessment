@@ -30,7 +30,7 @@ describe('InputComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    const placeholder = compiled.getAttribute('placeholder');
+    const placeholder = compiled.querySelector('input')?.getAttribute('placeholder');
     expect(placeholder).toBe('Placeholder');
   });
 

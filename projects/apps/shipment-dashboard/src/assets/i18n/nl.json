@@ -8,14 +8,17 @@
     "EMAIL": "Ongeldige e-mail adres"
   },
   "TOP-BAR": {
-    "HEADER": "Shipment dashboard"
+    "HEADER": "Zendingen dashboard"
+  },
+  "SIDE-BAR": {
+    "SHIPMENTS": "Zendingen"
   },
   "LOGIN": {
     "HEADER": "Inloggen",
     "PRIMARY-CTA": "Log in"
   },
   "WELCOME": {
-    "HEADER": "Welkom bij het shipment dashboard!",
+    "HEADER": "Welkom bij het zendingen dashboard!",
     "SUB-TEXT": "Klik op het hamburger icoon in de hoek links boven in om de sidebar te openen en te kunnen navigeren"
   },
   "SHIPMENTS": {

@@ -10,6 +10,9 @@
   "TOP-BAR": {
     "HEADER": "Shipment dashboard"
   },
+  "SIDE-BAR": {
+    "SHIPMENTS": "Shipments"
+  },
   "LOGIN": {
     "HEADER": "Login",
     "PRIMARY-CTA": "Log in"
