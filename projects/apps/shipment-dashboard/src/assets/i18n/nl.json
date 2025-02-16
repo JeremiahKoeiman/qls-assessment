@@ -13,5 +13,27 @@
   "LOGIN": {
     "HEADER": "Inloggen",
     "PRIMARY-CTA": "Log in"
+  },
+  "WELCOME": {
+    "HEADER": "Welkom bij het shipment dashboard!",
+    "SUB-TEXT": "Klik op het hamburger icoon in de hoek links boven in om de sidebar te openen en te kunnen navigeren"
+  },
+  "SHIPMENTS": {
+    "OVERVIEW": {
+      "TABLE": {
+        "TRACKING-URL": "Tracking URL",
+        "BRAND-NAME": "Merknaam",
+        "RECEIVER": "Ontvanger",
+        "CREATED": "Aangemaakt"
+      }
+    }
+  },
+  "PAGINATION": {
+    "FIRST-PAGE": "Eerste pagina",
+    "ITEMS-PER-PAGE": "Items per pagina:",
+    "LAST-PAGE": "Laatste pagina",
+    "NEXT-PAGE": "Volgende pagina",
+    "PREVIOUS-PAGE": "Vorige pagina",
+    "PAGE-OF-PAGES": "Pagina {{ pageNumber }} van {{ totalPages }}"
   }
 }

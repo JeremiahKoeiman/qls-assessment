@@ -13,5 +13,27 @@
   "LOGIN": {
     "HEADER": "Login",
     "PRIMARY-CTA": "Log in"
+  },
+  "WELCOME": {
+    "HEADER": "Welcome to the shipment dashboard!",
+    "SUB-TEXT": "Click on the hamburger icon in the top left corner to open the sidebar and navigate"
+  },
+  "SHIPMENTS": {
+    "OVERVIEW": {
+      "TABLE": {
+        "TRACKING-URL": "Tracking URL",
+        "BRAND-NAME": "Brand name",
+        "RECEIVER": "Receiver",
+        "CREATED": "Created"
+      }
+    }
+  },
+  "PAGINATION": {
+    "FIRST-PAGE": "First page",
+    "ITEMS-PER-PAGE": "Items per page:",
+    "LAST-PAGE": "Last page",
+    "NEXT-PAGE": "Next page",
+    "PREVIOUS-PAGE": "Previous page",
+    "PAGE-OF-PAGES": "Page {{ pageNumber }} of {{ totalPages }}"
   }
 }
