@@ -1,0 +1,8 @@
+<mat-paginator
+  class="sticky bottom-0"
+  [hidePageSize]="true"
+  [length]="length"
+  [pageSize]="pageSize"
+  showFirstLastButtons
+  (page)="pageChange.emit($event)"
+></mat-paginator>
