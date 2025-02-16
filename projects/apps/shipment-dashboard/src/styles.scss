@@ -12,8 +12,6 @@
 @use './styling/main.scss';
 @use './assets/fonts/fonts.scss';
 
-// TODO: remove material
-
 @include mat.core();
 
 $basic-theme: mat.define-theme();

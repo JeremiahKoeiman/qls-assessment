@@ -9,7 +9,6 @@
       "#sd/environment": ["./dist/projects/apps/shipment-dashboard/src/environments/environment.ts"],
 
       // Libraries
-      "@qls/authentication/*": ["./dist/projects/libs/authentication/*"],
       "@qls/components/*": ["./dist/projects/libs/components/*"],
       "@qls/utilities/*": ["./dist/projects/libs/utilities/*"]
     }
