@@ -13,3 +13,14 @@
     )
   );
 }
+
+.mat-mdc-row:hover {
+  transition-duration: 150ms;
+  background-color: theme('backgroundColor.fill.primary.DEFAULT');
+  color: white;
+
+  a {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+}

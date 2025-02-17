@@ -170,9 +170,7 @@ module.exports = {
           fontSize: '14px',
           color: theme('textColor.primary'),
           textDecoration: 'none',
-          '&:hover': {
-            borderBottom: `1px solid ${theme('textColor.primary')}`
-          },
+          borderBottom: `1px solid ${theme('textColor.primary')}`,
           '&:visited': {
             color: theme('textColor.primary'),
           }
