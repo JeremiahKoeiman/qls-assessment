@@ -1,31 +1,31 @@
 <table mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="trackingUrl">
-    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.OVERVIEW.TABLE.TRACKING-URL' | transloco }}</th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.TRACKING-URL' | transloco }}</th>
     <td mat-cell *matCellDef="let element">
       <a target="_blank" [href]="element.trackingUrl" (click)="$event.stopPropagation()">{{ element.barcode }}</a>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="brandName">
-    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.OVERVIEW.TABLE.BRAND-NAME' | transloco }}</th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.BRAND-NAME' | transloco }}</th>
     <td mat-cell *matCellDef="let element">{{ element.brand.name }}</td>
   </ng-container>
 
   <ng-container matColumnDef="receiver">
-    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.OVERVIEW.TABLE.RECEIVER' | transloco }}</th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.RECEIVER' | transloco }}</th>
     <td mat-cell *matCellDef="let element">
       <p triggerOverlayOnHover [triggerFor]="contact">{{ element.receiverContact.name }}</p>
 
       <ng-template #contact>
         <qls-tooltip tooltipType="dark">
-          <p class="text-xs">{{ element.receiverContact | receiverContact }}</p>
+          <p class="text-xs">{{ element.receiverContact | receiverAddress }}</p>
         </qls-tooltip>
       </ng-template>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="created">
-    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.OVERVIEW.TABLE.CREATED' | transloco }}</th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'SHIPMENTS.CREATED' | transloco }}</th>
     <td mat-cell *matCellDef="let element">{{ element.created | date: dateFormat }}</td>
   </ng-container>
 

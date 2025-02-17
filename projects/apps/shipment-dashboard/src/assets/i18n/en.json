@@ -22,14 +22,12 @@
     "SUB-TEXT": "Click on the hamburger icon in the top left corner to open the sidebar and navigate"
   },
   "SHIPMENTS": {
-    "OVERVIEW": {
-      "TABLE": {
-        "TRACKING-URL": "Tracking URL",
-        "BRAND-NAME": "Brand name",
-        "RECEIVER": "Receiver",
-        "CREATED": "Created"
-      }
-    }
+    "TRACKING-URL": "Tracking URL",
+    "BRAND-NAME": "Brand name",
+    "RECEIVER": "Receiver",
+    "RECEIVER-ADDRESS": "Address",
+    "CREATED": "Created",
+    "VIEW-SHIPMENT-DETAILS": "View details"
   },
   "PAGINATION": {
     "FIRST-PAGE": "First page",

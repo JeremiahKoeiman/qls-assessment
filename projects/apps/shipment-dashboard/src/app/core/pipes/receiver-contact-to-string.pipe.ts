@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ReceiverContact } from '#sd/app/core/domain/shipments/shipments.model';
 
 @Pipe({
-  name: 'receiverContact',
+  name: 'receiverAddress',
   standalone: true
 })
 export class ReceiverContactPipe implements PipeTransform {

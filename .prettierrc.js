@@ -1,13 +1,13 @@
 module.exports = {
   trailingComma: 'none',
-  printWidth: 140,
+  printWidth: 120,
   htmlWhitespaceSensitivity: 'ignore',
   singleQuote: true,
   overrides: [
     {
       files: '*.html',
       options: {
-        printWidth: 120
+        printWidth: 100
       }
     }
   ],

@@ -11,15 +11,14 @@
   <qls-snackbar message="This is a warning snackbar" alertStyle="warning" />
   <qls-snackbar message="This is a danger snackbar" alertStyle="danger" /> -->
 
-@if(isLoading$ | async) {
+@if (isLoading$ | async) {
 <div class="flex h-dvh w-full items-center justify-center">
   <qls-spinner />
 </div>
-}
-
-<sd-shipments-table [dataSource]="dataSource$ | async" />
-
-@if(pagination$ | async; as pagination) {
+} @else {
+<sd-shipments-cards class="block md:hidden" [shipments]="cardsDataSource$ | async" />
+<sd-shipments-table class="hidden md:block" [dataSource]="tableDataSource$ | async" />
+} @if (!(isLoading$ | async) && pagination$ | async) {
 <qls-pagination
   [length]="(pagination$ | async).count"
   [pageSize]="(pagination$ | async).limit"

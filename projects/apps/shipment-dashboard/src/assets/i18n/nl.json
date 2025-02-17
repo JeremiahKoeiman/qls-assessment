@@ -22,14 +22,12 @@
     "SUB-TEXT": "Klik op het hamburger icoon in de hoek links boven in om de sidebar te openen en te kunnen navigeren"
   },
   "SHIPMENTS": {
-    "OVERVIEW": {
-      "TABLE": {
-        "TRACKING-URL": "Tracking URL",
-        "BRAND-NAME": "Merknaam",
-        "RECEIVER": "Ontvanger",
-        "CREATED": "Aangemaakt"
-      }
-    }
+    "TRACKING-URL": "Tracking URL",
+    "BRAND-NAME": "Merknaam",
+    "RECEIVER": "Ontvanger",
+    "RECEIVER-ADDRESS": "Adres",
+    "CREATED": "Aangemaakt",
+    "PRIMARY-CTA": "Zie details"
   },
   "PAGINATION": {
     "FIRST-PAGE": "Eerste pagina",

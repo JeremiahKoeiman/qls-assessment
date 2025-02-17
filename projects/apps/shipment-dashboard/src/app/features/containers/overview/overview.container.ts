@@ -20,8 +20,10 @@ import { Memoize } from '@qls/utilities/reactive';
 import { BehaviorSubject, Observable, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs';
 
 import { ApiPagination } from '#sd/app/core/domain/api/api-result.model';
+import { Shipment } from '#sd/app/core/domain/shipments/shipments.model';
 import { ShipmentsService } from '#sd/app/core/domain/shipments/shipments.service';
 
+import { ShipmentCard, ShipmentsCardsComponent } from '../../components/shipments-cards/shipments-cards.component';
 import { ShipmentTableRow, ShipmentsTableComponent } from '../../components/shipments-table/shipments-table.component';
 
 // interface Animal {
@@ -70,18 +72,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
     ShipmentsTableComponent,
     TranslocoPipe,
     PaginationComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ShipmentsCardsComponent
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }]
 })
 export class OverviewComponent {
+  public readonly cards = Array.from({ length: 100 });
   public readonly dateFormat = DATETIME_FORMATS.tableHeader;
   public readonly displayedColumns = ['trackingUrl', 'brandName', 'receiver', 'created'];
 
-  private readonly shipmentsService = inject(ShipmentsService);
-
   private readonly loadingSubject = new BehaviorSubject<boolean>(false);
   private readonly pageIndexSubject = new BehaviorSubject<number>(0);
+
+  private readonly shipmentsService = inject(ShipmentsService);
 
   // Table
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
@@ -126,14 +130,9 @@ export class OverviewComponent {
     this.pageIndexSubject.next(pageEvent.pageIndex + 1);
   }
 
-  @Memoize public get pagination$(): Observable<ApiPagination> {
-    return this.shipmentsService.pagination$.pipe(shareReplay(1));
-  }
-
-  @Memoize public get dataSource$(): Observable<ShipmentTableRow[]> {
-    return this.pageIndexSubject.pipe(
+  @Memoize public get tableDataSource$(): Observable<ShipmentTableRow[]> {
+    return this.shipments$.pipe(
       tap(() => this.loadingSubject.next(true)),
-      switchMap(pageIndex => this.shipmentsService.getAll(pageIndex)),
       map(shipments =>
         shipments.map(
           shipment =>
@@ -151,7 +150,34 @@ export class OverviewComponent {
     );
   }
 
+  @Memoize public get cardsDataSource$(): Observable<ShipmentCard[]> {
+    return this.shipments$.pipe(
+      tap(() => this.loadingSubject.next(true)),
+      map(shipments =>
+        shipments.map(
+          shipment =>
+            ({
+              id: shipment.id,
+              barcode: shipment.barcode,
+              trackingUrl: shipment.trackingUrl,
+              brand: shipment.brand,
+              receiverContact: shipment.receiverContact
+            }) satisfies ShipmentCard
+        )
+      ),
+      tap(() => this.loadingSubject.next(false))
+    );
+  }
+
   @Memoize public get isLoading$(): Observable<boolean> {
     return this.loadingSubject.asObservable().pipe(distinctUntilChanged(), shareReplay(1));
+  }
+
+  @Memoize public get pagination$(): Observable<ApiPagination> {
+    return this.shipmentsService.pagination$.pipe(shareReplay(1));
+  }
+
+  @Memoize private get shipments$(): Observable<Shipment[]> {
+    return this.pageIndexSubject.pipe(switchMap(pageIndex => this.shipmentsService.getAll(pageIndex)));
   }
 }
