@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CardComponent } from './card.component';
+import { SpinnerComponent } from '../spinner';
 
-describe('CardComponent', () => {
+describe('SpinnerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardComponent]
+      imports: [SpinnerComponent]
     }).compileComponents();
   });
 
-  it('should create card component', () => {
-    const fixture = TestBed.createComponent(CardComponent);
+  it('should create input component', () => {
+    const fixture = TestBed.createComponent(SpinnerComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });

@@ -36,5 +36,9 @@
     "NEXT-PAGE": "Volgende pagina",
     "PREVIOUS-PAGE": "Vorige pagina",
     "PAGE-OF-PAGES": "Pagina {{ pageNumber }} van {{ totalPages }}"
+  },
+  "PAGE-NOT-FOUND": {
+    "HEADING": "404",
+    "SUB-TEXT": "Pagina niet gevonden"
   }
 }

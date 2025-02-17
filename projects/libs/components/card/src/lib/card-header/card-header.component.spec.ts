@@ -14,4 +14,17 @@ describe('CardHeaderComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+
+  it('should render with heading', () => {
+    const heading = 'Heading';
+    const fixture = TestBed.createComponent(CardHeaderComponent);
+    const component = fixture.componentInstance;
+
+    component.heading = heading;
+
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h4')?.textContent).toBe(heading);
+  });
 });

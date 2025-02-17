@@ -16,7 +16,7 @@
       </qls-card-content>
       <qls-card-footer>
         <qls-button
-          [attr.data-test]="'card-button' + shipment.id"
+          [attr.data-test]="'card-button-' + shipment.id"
           [label]="'SHIPMENTS.PRIMARY-CTA' | transloco"
           (click)="navigateToShipmentDetail(shipment.id)"
         ></qls-button>

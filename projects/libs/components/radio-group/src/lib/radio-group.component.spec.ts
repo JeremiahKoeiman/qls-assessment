@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { FormControl } from '@angular/forms';
 
 import { Radio, RadioGroupComponent } from './radio-group.component';
 
@@ -24,6 +25,7 @@ describe('RadioGroupComponent', () => {
   it('should render with radios', () => {
     const fixture = TestBed.createComponent(RadioGroupComponent);
     fixture.componentInstance.radios = radios;
+    fixture.componentInstance.control = new FormControl();
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
@@ -33,6 +35,7 @@ describe('RadioGroupComponent', () => {
   it('should render with radios and display label', () => {
     const fixture = TestBed.createComponent(RadioGroupComponent);
     fixture.componentInstance.radios = radios;
+    fixture.componentInstance.control = new FormControl();
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;

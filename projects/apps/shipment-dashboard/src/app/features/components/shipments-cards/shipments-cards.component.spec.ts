@@ -1,4 +1,8 @@
+import { provideHttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+
+import { provideInternationalizationConfig } from '#sd/app/core/configuration/internationalization/internationalization-config.provider';
+import { provideUiConfig } from '#sd/app/core/configuration/ui/ui-config.provider';
 
 import { ShipmentCard, ShipmentsCardsComponent } from './shipments-cards.component';
 
@@ -71,7 +75,8 @@ const shipments: ShipmentCard[] = [
 describe('ShipmentsCardsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShipmentsCardsComponent]
+      imports: [ShipmentsCardsComponent],
+      providers: [provideHttpClient(), provideUiConfig(), provideInternationalizationConfig()]
     }).compileComponents();
   });
 
@@ -93,11 +98,11 @@ describe('ShipmentsCardsComponent', () => {
   it('should call navigateToShipmentDetail on button click', () => {
     const fixture = TestBed.createComponent(ShipmentsCardsComponent);
     fixture.componentInstance.shipments = shipments;
-    fixture.componentInstance.navigateToShipmentDetail = jest.fn();
+    fixture.componentInstance.navigateToShipmentDetail = jasmine.createSpy();
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    compiled.querySelector(`qls-button[data-test=${shipments[0].id}]`).dispatchEvent(new Event('click'));
+    compiled.querySelector(`qls-button[data-test="card-button-${shipments[0].id}"]`)?.dispatchEvent(new Event('click'));
     expect(fixture.componentInstance.navigateToShipmentDetail).toHaveBeenCalledWith(shipments[0].id);
   });
 });

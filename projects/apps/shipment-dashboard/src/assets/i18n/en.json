@@ -36,5 +36,9 @@
     "NEXT-PAGE": "Next page",
     "PREVIOUS-PAGE": "Previous page",
     "PAGE-OF-PAGES": "Page {{ pageNumber }} of {{ totalPages }}"
+  },
+  "PAGE-NOT-FOUND": {
+    "HEADING": "404",
+    "SUB-TEXT": "Page not found"
   }
 }

@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { FormControl } from '@angular/forms';
 
 import { SwitchComponent } from './switch.component';
 
@@ -18,6 +19,7 @@ describe('SwitchComponent', () => {
   it('should render with label', () => {
     const fixture = TestBed.createComponent(SwitchComponent);
     fixture.componentInstance.label = 'Label';
+    fixture.componentInstance.control = new FormControl();
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;

@@ -1,5 +1,5 @@
 import { EnvironmentProviders, Provider, isDevMode } from '@angular/core';
-import { provideTransloco } from '@jsverse/transloco';
+import { DefaultTranspiler, provideTransloco, provideTranslocoTranspiler } from '@jsverse/transloco';
 import { provideTranslocoPersistLang } from '@jsverse/transloco-persist-lang';
 
 import { provideCurrency } from './currency/currency.provider';
@@ -26,6 +26,7 @@ export function provideInternationalizationConfig(): Provider | EnvironmentProvi
         useValue: localStorage
       }
     }),
+    provideTranslocoTranspiler(DefaultTranspiler),
 
     // i18n Defaults
     provideDateTime(),

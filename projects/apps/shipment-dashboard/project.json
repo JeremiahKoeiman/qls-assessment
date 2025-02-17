@@ -111,10 +111,10 @@
       "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "jestConfig": "projects/apps/shipment-dashboard/jest.config.ts"
+        "tsConfig": "{projectRoot}/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
       }
     },
     "serve-static": {

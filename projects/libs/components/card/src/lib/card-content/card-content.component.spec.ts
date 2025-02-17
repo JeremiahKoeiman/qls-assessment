@@ -9,7 +9,7 @@ describe('CardContentComponent', () => {
     }).compileComponents();
   });
 
-  it('should create input component', () => {
+  it('should create card content component', () => {
     const fixture = TestBed.createComponent(CardContentComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();

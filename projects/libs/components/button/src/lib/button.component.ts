@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { UiTextPipe } from '@qls/utilities/i18n';
 import { Memoize } from '@qls/utilities/reactive';
 import { observeProperty } from '@qls/utilities/rxjs';
 
@@ -12,7 +11,7 @@ import { ButtonType } from './button.model';
   selector: 'qls-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './button.component.html',
-  imports: [CommonModule, UiTextPipe]
+  imports: [CommonModule]
 })
 export class ButtonComponent {
   /**

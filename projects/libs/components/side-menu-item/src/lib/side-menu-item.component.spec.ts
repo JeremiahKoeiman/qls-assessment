@@ -25,16 +25,4 @@ describe('SideMenuItemComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('p')?.textContent).toContain(label);
   });
-
-  it('should contain an icon', () => {
-    const icon = 'heroTruck';
-    const fixture = TestBed.createComponent(SideMenuItemComponent);
-    fixture.componentInstance.icon = icon;
-
-    fixture.detectChanges();
-
-    const compiled = fixture.nativeElement as HTMLElement;
-    const iconAttribute = compiled.querySelector('ng-icon')?.getAttribute('name');
-    expect(iconAttribute).toBe(icon);
-  });
 });

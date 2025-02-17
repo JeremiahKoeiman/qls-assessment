@@ -25,13 +25,13 @@ module.exports = function (config) {
       clearContext: !config.singleRun // leave Jasmine Spec Runner output visible in browser
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../../test-output/coverage/qls/libs/components'),
+      dir: require('path').join(__dirname, '../../../test-output/coverage/qls/apps/shipment-dashboard'),
       reporters: [{ type: 'html' }, { type: 'text-summary' }, { type: 'cobertura' }],
       subdir: '.'
     },
     reporters: ['progress', 'kjhtml', 'junit'],
     junitReporter: {
-      outputDir: require('path').join(__dirname, '../../../test-output/unittests/qls/libs/components'),
+      outputDir: require('path').join(__dirname, '../../../test-output/unittests/qls/apps/shipment-dashboard'),
       useBrowserName: false
     },
     port: 9876,

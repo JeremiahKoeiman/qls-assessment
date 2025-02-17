@@ -8,6 +8,6 @@
     "sourceMap": true,
     "types": []
   },
-  "exclude": ["**/*.spec.ts", "**/test.ts", "**/*.stories.ts", "**/*.stories.js"],
-  "include": ["**/*.ts"]
+  "exclude": ["./**/*.spec.ts", "./**/test.ts", "./**/*.stories.ts", "./**/*.stories.js"],
+  "include": ["./**/*.ts"]
 }
