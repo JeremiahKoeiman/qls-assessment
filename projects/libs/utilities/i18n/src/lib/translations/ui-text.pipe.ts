@@ -4,7 +4,7 @@ import { TranslocoService } from '@jsverse/transloco';
 
 import { Observable, isObservable, of, switchMap } from 'rxjs';
 
-import { UiText, isTranslatable } from './translatable-text.model';
+import { UiText, isLabel, isTranslatable } from './translatable-text.model';
 
 @Pipe({
   standalone: true,
@@ -31,6 +31,9 @@ export class UiTextPipe implements PipeTransform, OnDestroy {
       return this.asyncPipe.transform(translatedLabel);
     } else if (isTranslatable(value)) {
       const translatedLabel = this.translocoService.selectTranslate(value.key, value.params);
+      return this.asyncPipe.transform(translatedLabel);
+    } else if (isLabel(value)) {
+      const translatedLabel = this.translocoService.selectTranslate(value);
       return this.asyncPipe.transform(translatedLabel);
     }
     return value;

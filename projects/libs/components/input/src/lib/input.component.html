@@ -1,9 +1,26 @@
 <mat-form-field appearance="outline" class="w-full">
   @if (label) {
-    <mat-label>{{ label }}</mat-label>
+    <mat-label>{{ label | uiText }}</mat-label>
   }
 
-  <input matInput [placeholder]="placeholder" [formControl]="control" (blur)="handleBlur()" />
+  @if (autocomplete) {
+    <input
+      matInput
+      [placeholder]="placeholder | uiText"
+      [formControl]="control"
+      [matAutocomplete]="autocomplete"
+      (blur)="handleBlur()"
+    />
+  } @else {
+    <input
+      matInput
+      [placeholder]="placeholder | uiText"
+      [formControl]="control"
+      [type]="inputType"
+      (blur)="handleBlur()"
+    />
+  }
+  <!-- <input matInput [placeholder]="placeholder" [formControl]="control" (blur)="handleBlur()" /> -->
 
   @if (control.invalid) {
     <mat-error>{{ errorMessage$ | async }}</mat-error>

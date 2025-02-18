@@ -9,8 +9,10 @@ import { environment } from '#sd/environment';
 import { ApiPagination, ApiResult } from '../api/api-result.model';
 
 import { mapShipmentDtosToShipments } from './mappers/shipment-dto-to-shipment.mapper';
-import { ShipmentDto } from './shipments.dto.model';
-import { Shipment } from './shipments.model';
+import { mapShipmentsFormToShipmentsV2Dto } from './mappers/shipments-v2.mapper';
+import { CreateShipment } from './models/shipment.form.model';
+import { ShipmentDto } from './models/shipments.dto.model';
+import { Shipment } from './models/shipments.model';
 
 @Injectable({ providedIn: 'root' })
 export class ShipmentsService {
@@ -27,6 +29,13 @@ export class ShipmentsService {
         tap(result => this.paginationSubject.next(result.pagination)),
         map(result => mapShipmentDtosToShipments(result.data))
       );
+  }
+
+  public create(shipment: CreateShipment): Observable<any> {
+    return this.httpClient.post(
+      `${environment.apiBaseUrl}/${environment.companyId}/shipments`,
+      mapShipmentsFormToShipmentsV2Dto(shipment)
+    );
   }
 
   @Memoize public get pagination$(): Observable<ApiPagination> {

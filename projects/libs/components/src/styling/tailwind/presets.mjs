@@ -122,6 +122,9 @@ module.exports = {
         },
         tertiary: {
           DEFAULT: '#4a82eb'
+        },
+        brand: {
+          DEFAULT: '#2b469b'
         }
       }),
     }

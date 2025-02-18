@@ -5,7 +5,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { ButtonComponent } from '@qls/components/button';
 import { CardComponent, CardContentComponent, CardFooterComponent, CardHeaderComponent } from '@qls/components/card';
 
-import { Shipment } from '#sd/app/core/domain/shipments/shipments.model';
+import { Shipment } from '#sd/app/core/domain/shipments/models/shipments.model';
 import { ReceiverContactPipe } from '#sd/app/core/pipes/receiver-contact-to-string.pipe';
 import { Routes } from '#sd/app/core/utilities/constants';
 

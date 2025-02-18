@@ -1,4 +1,8 @@
-# qls
+# Shipment dashboard
+
+### Known issues
+
+If you want to create a new shipment, don't fill in any fields and tries to save the shipment, you'll see that the required input fields turn red. However, no validation message is shown. This is a known issue which has to do with the transloco package. The issue can be found [here](https://github.com/ngneat/error-tailor/issues/64). Unfortunately, I came across this issue when I was almost done with the assessment. In order to see the validation message for a form field, you'll have to enter a value in the form field.
 
 # TODO: WRITE DOCS
 

@@ -1,7 +1,18 @@
 {
   "COMMON": {
     "EMAIL-ADDRESS": "Email address",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "NAME": "Name",
+    "COMPANYNAME": "Company name",
+    "HOUSENUMBER": "Housenumber",
+    "STREET": "Street",
+    "POSTALCODE": "Postalcode",
+    "LOCALITY": "City",
+    "COUNTRY": {
+      "HEADING": "Country",
+      "PLACEHOLDER": "Begin with typing... (eg. Netherlands)"
+    },
+    "PHONE": "Phone number"
   },
   "VALIDATION": {
     "REQUIRED": "This field is required",
@@ -27,7 +38,13 @@
     "RECEIVER": "Receiver",
     "RECEIVER-ADDRESS": "Address",
     "CREATED": "Created",
-    "VIEW-SHIPMENT-DETAILS": "View details"
+    "VIEW-SHIPMENT-DETAILS": "View details",
+    "CREATE-NEW": "Create",
+    "SENDER": "Sender",
+    "WEIGHT-IN-GRAMS": "Weight in grams",
+    "COD-AMOUNT": "Cash on delivery in euros",
+    "CUSTOMS-INVOICE-NUMBER": "Customs invoice number",
+    "CUSTOMS-SHIPMENT-TYPE": "Shipment type"
   },
   "PAGINATION": {
     "FIRST-PAGE": "First page",

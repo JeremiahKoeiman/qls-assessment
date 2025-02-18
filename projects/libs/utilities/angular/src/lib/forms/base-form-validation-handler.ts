@@ -18,7 +18,7 @@ export abstract class BaseFormValidationHandler {
 
   @Memoize public get hasValidationErrors$(): Observable<boolean> {
     return this.control$.pipe(
-      map(control => !!(control.touched && control.errors)),
+      map(control => !!(control.touched || control.errors)),
       shareReplay(1)
     );
   }
@@ -29,7 +29,10 @@ export abstract class BaseFormValidationHandler {
       switchMap(control => {
         if (control?.errors) {
           const errorPropertyName = Object.keys(control.errors)[0];
-          return this.translocoService.selectTranslate(`VALIDATION.${errorPropertyName.toUpperCase()}`, control.errors[errorPropertyName]);
+          return this.translocoService.selectTranslate(
+            `VALIDATION.${errorPropertyName.toUpperCase()}`,
+            control.errors[errorPropertyName]
+          );
         }
 
         return EMPTY;

@@ -1,5 +1,5 @@
-import { ShipmentDto } from '../shipments.dto.model';
-import { Shipment } from '../shipments.model';
+import { ShipmentDto } from '../models/shipments.dto.model';
+import { Shipment } from '../models/shipments.model';
 
 export const mapShipmentDtosToShipments = (dtos: ShipmentDto[]): Shipment[] => {
   return dtos.map(

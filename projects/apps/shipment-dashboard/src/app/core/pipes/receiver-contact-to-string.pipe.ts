@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { ReceiverContact } from '#sd/app/core/domain/shipments/shipments.model';
+import { ReceiverContact } from '#sd/app/core/domain/shipments/models/shipments.model';
 
 @Pipe({
   name: 'receiverAddress',

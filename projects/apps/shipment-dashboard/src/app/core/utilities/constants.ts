@@ -1,3 +1,4 @@
 export enum Routes {
-  SHIPMENTS = 'shipments'
+  SHIPMENTS = 'shipments',
+  CREATE = 'create'
 }

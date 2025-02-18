@@ -1,0 +1,55 @@
+<form [formGroup]="group" class="flex flex-col rounded bg-white p-4">
+  @if (heading) {
+    <h3 class="text-brand mb-8 mt-2 text-lg">{{ heading | uiText }}</h3>
+  }
+
+  <div class="flex flex-col gap-y-3">
+    <qls-input
+      label="COMMON.COMPANYNAME"
+      placeholder="COMMON.COMPANYNAME"
+      [control]="group.controls.companyname"
+    />
+    <qls-input label="COMMON.NAME" placeholder="COMMON.NAME" [control]="group.controls.name" />
+    <qls-input
+      label="COMMON.EMAIL-ADDRESS"
+      placeholder="COMMON.EMAIL-ADDRESS"
+      [control]="group.controls.email"
+    />
+    <qls-input label="COMMON.PHONE" placeholder="COMMON.PHONE" [control]="group.controls.phone" />
+
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <qls-input
+        label="COMMON.STREET"
+        placeholder="COMMON.STREET"
+        [control]="group.controls.street"
+      />
+      <qls-input
+        label="COMMON.HOUSENUMBER"
+        placeholder="COMMON.HOUSENUMBER"
+        [control]="group.controls.housenumber"
+      />
+      <qls-input
+        label="COMMON.POSTALCODE"
+        placeholder="COMMON.POSTALCODE"
+        [control]="group.controls.postalcode"
+      />
+      <qls-input
+        label="COMMON.LOCALITY"
+        placeholder="COMMON.LOCALITY"
+        [control]="group.controls.locality"
+      />
+    </div>
+
+    <qls-input
+      label="COMMON.COUNTRY.HEADING"
+      placeholder="COMMON.COUNTRY.PLACEHOLDER"
+      [control]="group.controls.country"
+      [autocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (country of filteredCountryOptions$ | async; track country.iso2) {
+        <mat-option [value]="country.country">{{ country.country }}</mat-option>
+      }
+    </mat-autocomplete>
+  </div>
+</form>

@@ -1,7 +1,18 @@
 {
   "COMMON": {
     "EMAIL-ADDRESS": "E-mail adres",
-    "PASSWORD": "Wachtwoord"
+    "PASSWORD": "Wachtwoord",
+    "NAME": "Naam",
+    "COMPANYNAME": "Bedrijfsnaam",
+    "HOUSENUMBER": "Huisnummer",
+    "STREET": "Straat",
+    "POSTALCODE": "Postcode",
+    "LOCALITY": "Woonplaats",
+    "COUNTRY": {
+      "HEADING": "Land",
+      "PLACEHOLDER": "Begin met typen... (vb. Netherlands)"
+    },
+    "PHONE": "Telefoonnummer"
   },
   "VALIDATION": {
     "REQUIRED": "Dit veld is verplicht",
@@ -27,7 +38,13 @@
     "RECEIVER": "Ontvanger",
     "RECEIVER-ADDRESS": "Adres",
     "CREATED": "Aangemaakt",
-    "PRIMARY-CTA": "Zie details"
+    "PRIMARY-CTA": "Zie details",
+    "CREATE-NEW": "Aanmaken",
+    "SENDER": "Afzender",
+    "WEIGHT-IN-GRAMS": "Gewicht in gram",
+    "COD-AMOUNT": "Remboursbedrag in euro's",
+    "CUSTOMS-INVOICE-NUMBER": "Douane factuurnummer",
+    "CUSTOMS-SHIPMENT-TYPE": "Verzend type"
   },
   "PAGINATION": {
     "FIRST-PAGE": "Eerste pagina",

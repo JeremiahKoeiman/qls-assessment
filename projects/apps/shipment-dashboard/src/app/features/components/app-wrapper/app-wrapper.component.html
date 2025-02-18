@@ -2,7 +2,7 @@
   <div class="flex size-full flex-col overflow-x-hidden">
     <sd-top-bar (qlsClick)="toggleSidebar()"></sd-top-bar>
 
-    <div class="relative flex h-dvh">
+    <div class="relative flex">
       @if (sidebarToggle$ | async) {
         <sd-side-bar />
       }

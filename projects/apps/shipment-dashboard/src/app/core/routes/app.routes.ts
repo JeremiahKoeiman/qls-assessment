@@ -1,14 +1,10 @@
 import { Route } from '@angular/router';
-import { languageScopeResolver } from '@qls/utilities/i18n';
 
 import { Routes } from '../utilities/constants';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    resolve: {
-      translationScope: languageScopeResolver
-    },
     loadComponent: () => import('#sd/app/features/components/app-wrapper/app-wrapper.component').then(c => c.AppWrapperComponent),
     children: [
       {
@@ -20,8 +16,9 @@ export const appRoutes: Route[] = [
         loadComponent: () => import('#sd/app/features/containers/overview/overview.container').then(c => c.OverviewComponent)
       },
       {
-        path: `${Routes.SHIPMENTS}/:id`,
-        loadComponent: () => import('#sd/app/features/containers/detail/detail.container').then(c => c.DetailComponent)
+        path: `${Routes.SHIPMENTS}/${Routes.CREATE}`,
+        loadComponent: () =>
+          import('#sd/app/features/containers/create-shipment/create-shipment.container').then(c => c.CreateShipmentsContainer)
       }
     ]
   },

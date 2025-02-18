@@ -7,10 +7,13 @@ import { ToolTipComponent } from '@qls/components/tooltip';
 import { TriggerOverlayOnHoverDirective } from '@qls/utilities/angular';
 import { DATETIME_FORMATS } from '@qls/utilities/i18n';
 
-import { Shipment } from '#sd/app/core/domain/shipments/shipments.model';
+import { Shipment } from '#sd/app/core/domain/shipments/models/shipments.model';
 import { ReceiverContactPipe } from '#sd/app/core/pipes/receiver-contact-to-string.pipe';
 
-export type ShipmentTableRow = Pick<Shipment, 'id' | 'barcode' | 'trackingUrl' | 'brand' | 'receiverContact' | 'created'>;
+export type ShipmentTableRow = Pick<
+  Shipment,
+  'id' | 'barcode' | 'trackingUrl' | 'brand' | 'receiverContact' | 'created'
+>;
 
 @Component({
   standalone: true,

@@ -4,6 +4,7 @@ import { FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/fo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BaseFormValidationHandler } from '@qls/utilities/angular';
+import { UiText, UiTextPipe } from '@qls/utilities/i18n';
 import { Memoize } from '@qls/utilities/reactive';
 import { observeProperty } from '@qls/utilities/rxjs';
 
@@ -17,7 +18,7 @@ export interface Option<T> {
 @Component({
   selector: 'qls-select',
   templateUrl: './select.component.html',
-  imports: [CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule],
+  imports: [CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, UiTextPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -31,7 +32,7 @@ export class SelectComponent<T> extends BaseFormValidationHandler {
   /**
    * The label to display
    */
-  @Input() public label: string;
+  @Input() public label: UiText;
 
   /**
    * The formcontrol
@@ -41,7 +42,7 @@ export class SelectComponent<T> extends BaseFormValidationHandler {
   /**
    * The placeholder of the input
    */
-  @Input() public placeholder?: string;
+  @Input() public placeholder?: UiText;
 
   /**
    * The options of the select

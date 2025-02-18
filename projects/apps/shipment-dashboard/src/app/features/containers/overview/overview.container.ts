@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatOptionModule } from '@angular/material/core';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { ButtonComponent } from '@qls/components/button';
 import { CheckboxComponent } from '@qls/components/checkbox';
 import { InputComponent } from '@qls/components/input';
 import { CustomPaginatorIntl, PaginationComponent } from '@qls/components/pagination';
@@ -14,14 +17,14 @@ import { SnackbarComponent } from '@qls/components/snackbar';
 import { SpinnerComponent } from '@qls/components/spinner';
 import { SwitchComponent } from '@qls/components/switch';
 import { TextareaComponent } from '@qls/components/textarea';
-import { DATETIME_FORMATS } from '@qls/utilities/i18n';
 import { Memoize } from '@qls/utilities/reactive';
 
 import { BehaviorSubject, Observable, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs';
 
 import { ApiPagination } from '#sd/app/core/domain/api/api-result.model';
-import { Shipment } from '#sd/app/core/domain/shipments/shipments.model';
+import { Shipment } from '#sd/app/core/domain/shipments/models/shipments.model';
 import { ShipmentsService } from '#sd/app/core/domain/shipments/shipments.service';
+import { Routes } from '#sd/app/core/utilities/constants';
 
 import { ShipmentCard, ShipmentsCardsComponent } from '../../components/shipments-cards/shipments-cards.component';
 import { ShipmentTableRow, ShipmentsTableComponent } from '../../components/shipments-table/shipments-table.component';
@@ -31,30 +34,10 @@ import { ShipmentTableRow, ShipmentsTableComponent } from '../../components/ship
 //   sound: string;
 // }
 
-/* export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
-]; */
-
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'sh-overview',
+  selector: 'sd-overview',
   templateUrl: './overview.container.html',
   imports: [
     CommonModule,
@@ -73,58 +56,68 @@ const ELEMENT_DATA: PeriodicElement[] = [
     TranslocoPipe,
     PaginationComponent,
     SpinnerComponent,
-    ShipmentsCardsComponent
+    ShipmentsCardsComponent,
+    MatAutocompleteModule,
+    ButtonComponent
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }]
 })
 export class OverviewComponent {
-  public readonly cards = Array.from({ length: 100 });
-  public readonly dateFormat = DATETIME_FORMATS.tableHeader;
-  public readonly displayedColumns = ['trackingUrl', 'brandName', 'receiver', 'created'];
+  // public readonly countries = this.mapLookupCountriesToOptionCountries(lookupCountries);
+
+  private readonly router = inject(Router);
 
   private readonly loadingSubject = new BehaviorSubject<boolean>(false);
   private readonly pageIndexSubject = new BehaviorSubject<number>(0);
 
   private readonly shipmentsService = inject(ShipmentsService);
 
-  // Table
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  // public formGroup = new FormGroup({
+  //   email: new FormControl('', [Validators.required]),
+  //   area: new FormControl('', [Validators.required]),
+  //   animal: new FormControl<Animal | null>(null, Validators.required),
+  //   checkbox: new FormControl<boolean>(false),
+  //   radio: new FormControl<boolean>(false),
+  //   switch: new FormControl<boolean>(true),
+  //   countries: new FormControl<string>('')
+  // });
 
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
+  // public animals: Animal[] = [
+  //   { name: 'Dog', sound: 'Woof!' },
+  //   { name: 'Cat', sound: 'Meow!' },
+  //   { name: 'Cow', sound: 'Moo!' },
+  //   { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' }
+  // ];
+
+  // public radios: Radio<number>[] = [
+  //   { label: 'Radio 1', value: 1 },
+  //   { label: 'Radio 2', value: 2 },
+  //   { label: 'Radio 3', value: 3 }
+  // ];
+
+  // public mappedAnimals = this.mapAnimalsToOption(this.animals);
+
+  // private mapAnimalsToOption(animals: Animal[]): Option<Animal>[] {
+  //   return animals.map(animal => ({
+  //     label: animal.name,
+  //     value: animal
+  //   }));
   // }
 
-  /* public formGroup = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-    area: new FormControl('', [Validators.required]),
-    animal: new FormControl<Animal | null>(null, Validators.required),
-    checkbox: new FormControl<boolean>(false),
-    radio: new FormControl<boolean>(false),
-    switch: new FormControl<boolean>(true)
-  });
+  // private mapLookupCountriesToOptionCountries(countries: Country[]): Option<string>[] {
+  //   return countries.map(country => ({
+  //     label: country.country,
+  //     value: country.iso2
+  //   }));
+  // }
 
-  public animals: Animal[] = [
-    { name: 'Dog', sound: 'Woof!' },
-    { name: 'Cat', sound: 'Meow!' },
-    { name: 'Cow', sound: 'Moo!' },
-    { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' }
-  ];
+  // public displayFn(option: Option<string>): string {
+  //   return option.label;
+  // }
 
-  public radios: Radio<number>[] = [
-    { label: 'Radio 1', value: 1 },
-    { label: 'Radio 2', value: 2 },
-    { label: 'Radio 3', value: 3 }
-  ];
-
-  public mappedAnimals = this.mapAnimalsToOption(this.animals);
-
-  private mapAnimalsToOption(animals: Animal[]): Option<Animal>[] {
-    return animals.map(animal => ({
-      label: animal.name,
-      value: animal
-    }));
-  } */
+  public navigateToCreateShipment(): void {
+    this.router.navigate([Routes.SHIPMENTS, Routes.CREATE]);
+  }
 
   public handlePageChange(pageEvent: PageEvent): void {
     this.pageIndexSubject.next(pageEvent.pageIndex + 1);
