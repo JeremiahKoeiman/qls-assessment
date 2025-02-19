@@ -13,7 +13,6 @@ import { InputComponent } from '@qls/components/input';
 import { CustomPaginatorIntl, PaginationComponent } from '@qls/components/pagination';
 import { RadioGroupComponent } from '@qls/components/radio-group';
 import { SelectComponent } from '@qls/components/select';
-import { SnackbarComponent } from '@qls/components/snackbar';
 import { SpinnerComponent } from '@qls/components/spinner';
 import { SwitchComponent } from '@qls/components/switch';
 import { TextareaComponent } from '@qls/components/textarea';
@@ -51,7 +50,6 @@ import { ShipmentTableRow, ShipmentsTableComponent } from '../../components/ship
     CheckboxComponent,
     RadioGroupComponent,
     SwitchComponent,
-    SnackbarComponent,
     ShipmentsTableComponent,
     TranslocoPipe,
     PaginationComponent,

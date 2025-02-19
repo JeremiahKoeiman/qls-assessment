@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+
+:root {
+  --snackbar-bg-color: theme('backgroundColor.fill.success.DEFAULT');
+  --snackbar-text-color: white;
+
+  @include mat.snack-bar-overrides(
+    (
+      container-color: var(--snackbar-bg-color),
+      supporting-text-color: var(--snackbar-text-color)
+    )
+  );
+}
+
+.success-snackbar {
+  --snackbar-bg-color: theme('backgroundColor.fill.success.DEFAULT');
+}
+
+.warning-snackbar {
+  --snackbar-bg-color: theme('backgroundColor.fill.warning.DEFAULT');
+}
+
+.danger-snackbar {
+  --snackbar-bg-color: theme('backgroundColor.fill.danger.DEFAULT');
+}

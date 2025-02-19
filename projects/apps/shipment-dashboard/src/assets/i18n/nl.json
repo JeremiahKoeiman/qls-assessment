@@ -33,6 +33,7 @@
     "SUB-TEXT": "Klik op het hamburger icoon in de hoek links boven in om de sidebar te openen en te kunnen navigeren"
   },
   "SHIPMENTS": {
+    "SHIPMENT": "Zending",
     "TRACKING-URL": "Tracking URL",
     "BRAND-NAME": "Merknaam",
     "RECEIVER": "Ontvanger",
@@ -44,7 +45,11 @@
     "WEIGHT-IN-GRAMS": "Gewicht in gram",
     "COD-AMOUNT": "Remboursbedrag in euro's",
     "CUSTOMS-INVOICE-NUMBER": "Douane factuurnummer",
-    "CUSTOMS-SHIPMENT-TYPE": "Verzend type"
+    "CUSTOMS-SHIPMENT-TYPE": "Verzend type",
+    "ALERT": {
+      "SUCCESS": "Zending is opgeslagen!",
+      "DANGER": "Oeps! Er is iets misgegaan"
+    }
   },
   "PAGINATION": {
     "FIRST-PAGE": "Eerste pagina",

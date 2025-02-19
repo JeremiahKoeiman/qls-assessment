@@ -33,6 +33,7 @@
     "SUB-TEXT": "Click on the hamburger icon in the top left corner to open the sidebar and navigate"
   },
   "SHIPMENTS": {
+    "SHIPMENT": "Shipment",
     "TRACKING-URL": "Tracking URL",
     "BRAND-NAME": "Brand name",
     "RECEIVER": "Receiver",
@@ -44,7 +45,11 @@
     "WEIGHT-IN-GRAMS": "Weight in grams",
     "COD-AMOUNT": "Cash on delivery in euros",
     "CUSTOMS-INVOICE-NUMBER": "Customs invoice number",
-    "CUSTOMS-SHIPMENT-TYPE": "Shipment type"
+    "CUSTOMS-SHIPMENT-TYPE": "Shipment type",
+    "ALERT": {
+      "SUCCESS": "Shipment is saved!",
+      "DANGER": "Oops! Something went wrong"
+    }
   },
   "PAGINATION": {
     "FIRST-PAGE": "First page",

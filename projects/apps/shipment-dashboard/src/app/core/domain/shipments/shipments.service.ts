@@ -2,10 +2,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Memoize } from '@qls/utilities/reactive';
 
-import { Observable, Subject, map, tap } from 'rxjs';
+import { Observable, Subject, catchError, map, tap, throwError } from 'rxjs';
 
 import { environment } from '#sd/environment';
 
+import { SnackbarActionService } from '../../configuration/ui/snackbar/snackbar-action.service';
+import { Routes } from '../../utilities/constants';
 import { ApiPagination, ApiResult } from '../api/api-result.model';
 
 import { mapShipmentDtosToShipments } from './mappers/shipment-dto-to-shipment.mapper';
@@ -17,6 +19,7 @@ import { Shipment } from './models/shipments.model';
 @Injectable({ providedIn: 'root' })
 export class ShipmentsService {
   private readonly httpClient = inject(HttpClient);
+  private readonly snackbarActionService = inject(SnackbarActionService);
 
   private readonly paginationSubject = new Subject<ApiPagination>();
 
@@ -32,10 +35,17 @@ export class ShipmentsService {
   }
 
   public create(shipment: CreateShipment): Observable<any> {
-    return this.httpClient.post(
-      `${environment.apiBaseUrl}/${environment.companyId}/shipments`,
-      mapShipmentsFormToShipmentsV2Dto(shipment)
-    );
+    return this.httpClient
+      .post(`${environment.apiBaseUrl}/${environment.companyId}/shipments`, mapShipmentsFormToShipmentsV2Dto(shipment))
+      .pipe(
+        tap(() => {
+          this.snackbarActionService.emitSuccess('SHIPMENTS.ALERT.SUCCESS', Routes.SHIPMENTS);
+        }),
+        catchError(error => {
+          this.snackbarActionService.emitDanger('SHIPMENTS.ALERT.DANGER');
+          return throwError(() => error);
+        })
+      );
   }
 
   @Memoize public get pagination$(): Observable<ApiPagination> {
