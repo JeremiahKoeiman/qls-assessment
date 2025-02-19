@@ -14,35 +14,11 @@
         "project": "{projectRoot}/ng-package.json"
       }
     },
-    "TESTbuild": {
-      "executor": "@angular-devkit/build-angular:ng-packagr",
-      "outputs": ["{workspaceRoot}/dist/projects/libs/{projectName}"],
-      "options": {
-        "project": "{projectRoot}/ng-package.json"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "{projectRoot}/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "{projectRoot}/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
         "tsConfig": "{projectRoot}/tsconfig.spec.json",
         "polyfills": ["zone.js", "zone.js/testing"]
-      }
-    },
-    "lint": {
-      "executor": "@angular-eslint/builder:lint",
-      "options": {
-        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"],
-        "maxWarnings": 0,
-        "eslintConfig": "{projectRoot}/.eslintrc.js"
       }
     }
   }

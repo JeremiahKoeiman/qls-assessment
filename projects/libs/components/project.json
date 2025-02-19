@@ -26,14 +26,6 @@
         "tsConfig": "{projectRoot}/tsconfig.spec.json",
         "polyfills": ["zone.js", "zone.js/testing"]
       }
-    },
-    "lint": {
-      "executor": "@angular-eslint/builder:lint",
-      "options": {
-        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"],
-        "maxWarnings": 0,
-        "eslintConfig": "{projectRoot}/.eslintrc.js"
-      }
     }
   }
 }

@@ -1,2 +1,2 @@
-export const ZOOKEEPER_STORAGE_KEY = 'zookeeper';
-export const ZOOKEEPER_STORAGE_DELIMITER = '.';
+export const QLS_STORAGE_KEY = 'qls';
+export const QLS_STORAGE_DELIMITER = '.';

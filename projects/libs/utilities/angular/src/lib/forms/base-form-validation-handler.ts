@@ -6,8 +6,10 @@ import { Memoize } from '@qls/utilities/reactive';
 import { EMPTY, Observable, Subject, map, merge, shareReplay, switchMap } from 'rxjs';
 
 export abstract class BaseFormValidationHandler {
+  // The control used to attach to
   protected abstract get control$(): Observable<FormControl>;
 
+  // This subject gets nexted the moment the blur event is triggered on the form field
   private readonly blurSubject = new Subject<void>();
 
   private readonly translocoService = inject(TranslocoService);
@@ -16,6 +18,9 @@ export abstract class BaseFormValidationHandler {
     this.blurSubject.next();
   }
 
+  /**
+   * Checks whether the form control has validation errors
+   */
   @Memoize public get hasValidationErrors$(): Observable<boolean> {
     return this.control$.pipe(
       map(control => !!(control.touched && control.errors)),
@@ -44,10 +49,12 @@ export abstract class BaseFormValidationHandler {
     );
   }
 
+  // The observable of the blur subject. Is used to check whether there is an error message
   @Memoize private get blur$(): Observable<void> {
     return this.blurSubject.asObservable();
   }
 
+  // Returns the statusChanges observable of the form control
   @Memoize private get statusChanges$(): Observable<FormControlStatus> {
     return this.control$.pipe(
       switchMap(control => control.statusChanges),
@@ -55,6 +62,7 @@ export abstract class BaseFormValidationHandler {
     );
   }
 
+  // Returns the valueChanges observable of the form control
   @Memoize private get valueChanges$(): Observable<any> {
     return this.control$.pipe(
       switchMap(control => control.valueChanges),

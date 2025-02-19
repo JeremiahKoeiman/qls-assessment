@@ -2,107 +2,34 @@
 
 ### Known issues
 
-If you want to create a new shipment, don't fill in any fields and tries to save the shipment, you'll see that the required input fields turn red. However, no validation message is shown. This is a known issue which has to do with the transloco package. The issue can be found [here](https://github.com/ngneat/error-tailor/issues/64). Unfortunately, I came across this issue when I was almost done with the assessment. In order to see the validation message for a form field, you'll have to enter a value in the form field.
+1. If you want to create a new shipment, don't fill in any fields and tries to save the shipment, you'll see that the required input fields turn red. However, no validation message is shown. This is a known issue which has to do with the transloco package. The issue can be found [here](https://github.com/ngneat/error-tailor/issues/64). Unfortunately, I came across this issue when I was almost done with the assessment. In order to see the validation message for a form field, you'll have to enter a value in the form field.
 
-# TODO: WRITE DOCS
+2. If you have any issues when running/building the project, please delete the `.nx` and `.angular` folders. These folders contain cached data and sometimes it can cause some issues
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+# Commands
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+This is an overview of the available commands for this project.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+| shipment-dashboard                    | @qls/components                   | @qls/utilities                    |
+| ------------------------------------- | --------------------------------- | --------------------------------- |
+| `npx nx run shipment-dashboard:serve` | `npx nx run @qls/utilities:build` | `npx nx run @qls/utilities:build` |
+| `npx nx run shipment-dashboard:build` | `npx nx run @qls/components:test` | `npx nx run @qls/utilities:test`  |
+| `npx nx run shipment-dashboard:test`  |                                   |                                   |
 
-## Run tasks
+The commands for the `shipment-dashboard` default to the `development` configurations. I you want to use the `production` configuration, you'll need to add `:production` at the end of each command. So: `npx nx run shipment-dashboard:build` becomes `npx nx run shipment-dashboard:build:production`.
 
-To run the dev server for your app, use:
+If you're using VSCode, you can also install the `NX Console` extension. It'll looks like this: ![nx-console](./pictures/nx-console.png)
 
-```sh
-npx nx serve zookeeper
-```
+# Project
 
-To create a production bundle:
+This project was build with the idea of modularity. Let's start with the libraries.
 
-```sh
-npx nx build zookeeper
-```
+## Libraries
 
-To see all available targets to run for a project, run:
+There are 2 libraries: the component and utility libraries. The idea behind these libraries is that ideally these are hosted as `npm` packages which can be installed in any app and you'll be able to import things like the tailwind config. To replicate this idea, without using `npm link` to create a symlink, you'll see that both the component library and the shipment-dashboard app have the same tailwind configuration.
 
-```sh
-npx nx show project zookeeper
-```
+I also use secondary imports in the libraries. The reason I do this is to create a cleaner/smaller build output. Normally you'll have a barrel file (an index.ts) file where all your exports are listed. This'll mean that if your component (let's say it's named AppWrapperComponent) uses 1 or 2 items from the library, when you're app is build and webpack comes across the AppWrapperComponent, everything from the barrel file is added to the bundle of the AppWrapperComponent. To prevent this, I use secondary imports. If I use a utility like `@Memoize`, it's not imported from `@qls/utilities` but from `@qls/utilities/reactive` and this means that only the files that have something to do with the utility is added to the bundle.
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+## Apps
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/angular:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
-```
-
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
-
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+This is the actual app for the shipment dashboard. In the app I use mapper functions. These functions add stability to the frontend. Let's say a property name is changed in the backend. To fix this in the frontend when you don't use mappers, you'll have to not only change the interface, but also all the places where said interface is used. The bigger the app and the more the interface is used, the more places you'll have to fix this. Mapper functions solve this. Before posting and after getting the data from the backend, you can use a mapper function that maps the data to that that matches an interface. Now, if a property in the backend changes, you'll only have to change this in the corresponding mapper function and interface.

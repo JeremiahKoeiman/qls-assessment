@@ -7,10 +7,7 @@ import { observeProperty } from '@qls/utilities/rxjs';
 
 import { Observable, shareReplay } from 'rxjs';
 
-export interface Radio<T> {
-  label: string;
-  value: T;
-}
+import { Radio } from './radio-group.model';
 
 @Component({
   selector: 'qls-radio-group',

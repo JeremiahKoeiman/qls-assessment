@@ -45,7 +45,7 @@ export class InputComponent extends BaseFormValidationHandler {
   @Input() public placeholder?: string;
 
   /**
-   * The auto complete component that needs to be connected to the input
+   * The auto complete component that will be connected to the input
    */
   @Input() public autocomplete?: MatAutocomplete;
 

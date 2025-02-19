@@ -101,28 +101,11 @@
       },
       "defaultConfiguration": "development"
     },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "buildTarget": "shipment-dashboard:build:production"
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
-    },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
         "tsConfig": "{projectRoot}/tsconfig.spec.json",
         "polyfills": ["zone.js", "zone.js/testing"]
-      }
-    },
-    "serve-static": {
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "shipment-dashboard:build:production",
-        "port": 4200,
-        "spa": true
       }
     }
   }

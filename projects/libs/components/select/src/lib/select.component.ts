@@ -9,10 +9,7 @@ import { observeProperty } from '@qls/utilities/rxjs';
 
 import { Observable, shareReplay } from 'rxjs';
 
-export interface Option<T> {
-  label: string;
-  value: T;
-}
+import { Option } from './select.model';
 
 @Component({
   selector: 'qls-select',

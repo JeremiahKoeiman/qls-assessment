@@ -27,7 +27,7 @@ export class CheckboxComponent {
   @Input({ required: true }) public label: string;
 
   /**
-   * The formcontrol
+   * The formcontrol for the checkbox component
    */
   @Input({ required: true }) public control: FormControl;
 
