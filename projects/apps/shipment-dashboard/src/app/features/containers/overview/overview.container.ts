@@ -15,13 +15,13 @@ import { Shipment } from '#sd/app/core/domain/shipments/models/shipments.model';
 import { ShipmentsService } from '#sd/app/core/domain/shipments/shipments.service';
 import { Routes } from '#sd/app/core/utilities/constants';
 
-import { ShipmentCard, ShipmentsCardsComponent } from '../../components/shipments-cards/shipments-cards.component';
-import { ShipmentTableRow, ShipmentsTableComponent } from '../../components/shipments-table/shipments-table.component';
+import { ShipmentsCardsComponent } from '../../components/shipments-cards/shipments-cards.component';
+import { ShipmentsTableComponent } from '../../components/shipments-table/shipments-table.component';
 
-// interface Animal {
-//   name: string;
-//   sound: string;
-// }
+export type ShipmentTemplateData = Pick<
+  Shipment,
+  'id' | 'barcode' | 'trackingUrl' | 'brand' | 'receiverContact' | 'created'
+>;
 
 @Component({
   standalone: true,
@@ -54,7 +54,7 @@ export class OverviewComponent {
     this.pageIndexSubject.next(pageEvent.pageIndex + 1);
   }
 
-  @Memoize public get tableDataSource$(): Observable<ShipmentTableRow[]> {
+  @Memoize public get dataSource$(): Observable<ShipmentTemplateData[]> {
     return this.shipments$.pipe(
       tap(() => this.loadingSubject.next(true)),
       map(shipments =>
@@ -67,26 +67,7 @@ export class OverviewComponent {
               brand: shipment.brand,
               receiverContact: shipment.receiverContact,
               created: shipment.created
-            }) satisfies ShipmentTableRow
-        )
-      ),
-      tap(() => this.loadingSubject.next(false))
-    );
-  }
-
-  @Memoize public get cardsDataSource$(): Observable<ShipmentCard[]> {
-    return this.shipments$.pipe(
-      tap(() => this.loadingSubject.next(true)),
-      map(shipments =>
-        shipments.map(
-          shipment =>
-            ({
-              id: shipment.id,
-              barcode: shipment.barcode,
-              trackingUrl: shipment.trackingUrl,
-              brand: shipment.brand,
-              receiverContact: shipment.receiverContact
-            }) satisfies ShipmentCard
+            }) satisfies ShipmentTemplateData
         )
       ),
       tap(() => this.loadingSubject.next(false))

@@ -23,11 +23,9 @@
     "HEADER": "Zendingen dashboard"
   },
   "SIDE-BAR": {
-    "SHIPMENTS": "Zendingen"
-  },
-  "LOGIN": {
-    "HEADER": "Inloggen",
-    "PRIMARY-CTA": "Log in"
+    "SHIPMENTS": "Zendingen",
+    "HOME": "Home",
+    "SETTINGS": "Instellingen"
   },
   "WELCOME": {
     "HEADER": "Welkom bij het zendingen dashboard!",
@@ -63,5 +61,14 @@
   "PAGE-NOT-FOUND": {
     "HEADING": "404",
     "SUB-TEXT": "Pagina niet gevonden"
+  },
+  "SETTINGS": {
+    "HEADING": "Instellingen",
+    "LANGUAGE": {
+      "HEADING": "Taal",
+      "NL": "Nederlands",
+      "EN": "Engels"
+    },
+    "SAVE": "Opslaan"
   }
 }

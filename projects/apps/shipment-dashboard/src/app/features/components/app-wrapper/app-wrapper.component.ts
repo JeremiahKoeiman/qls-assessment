@@ -19,6 +19,7 @@ import {
 } from 'rxjs';
 
 import { SnackbarActionService } from '#sd/app/core/configuration/ui/snackbar/snackbar-action.service';
+import { languageSettingLocalStorageKey } from '#sd/app/core/utilities/constants';
 
 import { SideBarComponent } from '../side-bar/side-bar.component';
 import { TopBarComponent } from '../top-bar/top-bar.component';
@@ -41,6 +42,11 @@ export class AppWrapperComponent implements OnInit, OnDestroy {
   private readonly subscription = new Subscription();
 
   public ngOnInit(): void {
+    const savedLanguage = localStorage.getItem(languageSettingLocalStorageKey);
+    const defaultLang = this.translocoService.getDefaultLang();
+
+    this.translocoService.setActiveLang(savedLanguage ?? defaultLang);
+
     this.closeSidebarOnNavigationEnd();
     this.showSnackbarOnSnackbarAction();
   }

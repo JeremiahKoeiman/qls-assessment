@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-  @for (shipment of shipments; track shipment.id) {
+  @for (shipment of dataSource; track shipment.id) {
     <qls-card>
       <qls-card-header [heading]="shipment.brand.name" />
       <qls-card-content>
@@ -11,7 +11,10 @@
             </a>
           </span>
           <span>{{ 'SHIPMENTS.RECEIVER' | transloco }}: {{ shipment.receiverContact.name }}</span>
-          <span>{{ 'SHIPMENTS.RECEIVER-ADDRESS' | transloco }}: {{ shipment.receiverContact | receiverAddress }}</span>
+          <span>
+            {{ 'SHIPMENTS.RECEIVER-ADDRESS' | transloco }}:
+            {{ shipment.receiverContact | receiverAddress }}
+          </span>
         </div>
       </qls-card-content>
       <qls-card-footer>

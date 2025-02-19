@@ -12,7 +12,7 @@ export function provideInternationalizationConfig(): Provider | EnvironmentProvi
     // Translations
     provideTransloco({
       config: {
-        availableLangs: ['en', 'nl'],
+        availableLangs: ['nl', 'en'],
         defaultLang: 'nl',
         fallbackLang: 'nl',
         // Remove this option if your application doesn't support changing language in runtime.

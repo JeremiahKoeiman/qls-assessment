@@ -7,14 +7,10 @@ import { ToolTipComponent } from '@qls/components/tooltip';
 import { TriggerOverlayOnHoverDirective } from '@qls/utilities/angular';
 import { DATETIME_FORMATS } from '@qls/utilities/i18n';
 
-import { Shipment } from '#sd/app/core/domain/shipments/models/shipments.model';
 import { ReceiverContactPipe } from '#sd/app/core/pipes/receiver-contact-to-string.pipe';
 import { Routes } from '#sd/app/core/utilities/constants';
 
-export type ShipmentTableRow = Pick<
-  Shipment,
-  'id' | 'barcode' | 'trackingUrl' | 'brand' | 'receiverContact' | 'created'
->;
+import { ShipmentTemplateData } from '../../containers/overview/overview.container';
 
 @Component({
   standalone: true,
@@ -35,7 +31,7 @@ export class ShipmentsTableComponent {
   /**
    * The dataSource for the table
    */
-  @Input({ required: true }) public dataSource: ShipmentTableRow[];
+  @Input({ required: true }) public dataSource: ShipmentTemplateData[];
 
   public readonly routes = Routes;
   public readonly dateFormat = DATETIME_FORMATS.tableHeader;

@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-y-8">
+  <h3 class="text-primary">{{ 'SETTINGS.HEADING' | transloco }}</h3>
+
+  <div>
+    <h4 class="text-primary">{{ 'SETTINGS.LANGUAGE.HEADING' | transloco }}</h4>
+
+    <form [formGroup]="formGroup" class="mb-4 flex flex-col gap-y-3">
+      <qls-radio-group [radios]="radios$ | async" [control]="formGroup.controls.language" />
+    </form>
+
+    <qls-button class="flex w-48" [label]="'SETTINGS.SAVE' | transloco" (click)="saveSettings()" />
+  </div>
+</div>

@@ -23,11 +23,9 @@
     "HEADER": "Shipment dashboard"
   },
   "SIDE-BAR": {
-    "SHIPMENTS": "Shipments"
-  },
-  "LOGIN": {
-    "HEADER": "Login",
-    "PRIMARY-CTA": "Log in"
+    "SHIPMENTS": "Shipments",
+    "HOME": "Home",
+    "SETTINGS": "Settings"
   },
   "WELCOME": {
     "HEADER": "Welcome to the shipment dashboard!",
@@ -63,5 +61,14 @@
   "PAGE-NOT-FOUND": {
     "HEADING": "404",
     "SUB-TEXT": "Page not found"
+  },
+  "SETTINGS": {
+    "HEADING": "Settings",
+    "LANGUAGE": {
+      "HEADING": "Language",
+      "NL": "Dutch",
+      "EN": "English"
+    },
+    "SAVE": "Save"
   }
 }

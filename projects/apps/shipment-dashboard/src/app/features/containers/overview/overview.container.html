@@ -10,8 +10,8 @@
     <qls-spinner />
   </div>
   } @else {
-  <sd-shipments-cards class="block md:hidden" [shipments]="cardsDataSource$ | async" />
-  <sd-shipments-table class="hidden md:block" [dataSource]="tableDataSource$ | async" />
+  <sd-shipments-cards class="block md:hidden" [dataSource]="dataSource$ | async" />
+  <sd-shipments-table class="hidden md:block" [dataSource]="dataSource$ | async" />
   } @if (!(isLoading$ | async) && pagination$ | async) {
   <qls-pagination
     class="sticky bottom-0"

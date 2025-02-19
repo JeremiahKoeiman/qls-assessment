@@ -1,5 +1,17 @@
 <div
   class="bg-surface-primary border-r-tertiary absolute left-0 top-0 h-screen w-screen border-r p-4 shadow-md sm:w-60"
 >
-  <qls-side-menu-item [routerLink]="routes.SHIPMENTS" [label]="'SIDE-BAR.SHIPMENTS' | transloco" icon="heroTruck" />
+  <div class="mt-8 flex flex-col gap-y-4">
+    <qls-side-menu-item routerLink="/" [label]="'SIDE-BAR.HOME' | transloco" icon="heroHome" />
+    <qls-side-menu-item
+      [routerLink]="routes.SHIPMENTS"
+      [label]="'SIDE-BAR.SHIPMENTS' | transloco"
+      icon="heroTruck"
+    />
+    <qls-side-menu-item
+      [routerLink]="routes.SETTINGS"
+      [label]="'SIDE-BAR.SETTINGS' | transloco"
+      icon="heroCog6Tooth"
+    />
+  </div>
 </div>

@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { provideIcons } from '@ng-icons/core';
-import { heroTruck } from '@ng-icons/heroicons/outline';
+import { heroCog6Tooth, heroHome, heroTruck } from '@ng-icons/heroicons/outline';
 import { SideMenuItemComponent } from '@qls/components/side-menu-item';
 
 import { Routes } from '#sd/app/core/utilities/constants';
@@ -14,7 +14,7 @@ import { Routes } from '#sd/app/core/utilities/constants';
   templateUrl: './side-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterModule, SideMenuItemComponent, TranslocoPipe],
-  viewProviders: [provideIcons({ heroTruck })]
+  viewProviders: [provideIcons({ heroTruck, heroHome, heroCog6Tooth })]
 })
 export class SideBarComponent {
   public readonly routes = Routes;
