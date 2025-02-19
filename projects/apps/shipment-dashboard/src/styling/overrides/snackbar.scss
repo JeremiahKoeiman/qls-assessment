@@ -3,7 +3,9 @@
 :root {
   --snackbar-bg-color: theme('backgroundColor.fill.success.DEFAULT');
   --snackbar-text-color: white;
+}
 
+.mat-mdc-snack-bar-container {
   @include mat.snack-bar-overrides(
     (
       container-color: var(--snackbar-bg-color),

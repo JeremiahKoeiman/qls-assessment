@@ -19,35 +19,6 @@ import { ShipmentsService } from '#sd/app/core/domain/shipments/shipments.servic
 
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 
-const yeet: CreateShipment = {
-  weight: 500,
-  codAmount: 20,
-  customsInvoiceNumber: '',
-  customsShipmentType: 'commercial',
-  senderContact: {
-    name: 'hbsf',
-    companyname: 'Stadhuis',
-    housenumber: '40',
-    street: 'Coolsingel',
-    postalcode: '3011AD',
-    locality: 'Rotterdam',
-    country: 'NL',
-    email: 'test@email.com',
-    phone: '0612345678'
-  },
-  receiverContact: {
-    name: 'Jerry',
-    companyname: 'Bijenkorf',
-    housenumber: '105',
-    street: 'Coolsingel',
-    postalcode: '3012AG',
-    locality: 'Rotterdam',
-    country: 'NL',
-    email: 'bijenkorf@email.com',
-    phone: '0687654321'
-  }
-};
-
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -72,7 +43,7 @@ export class CreateShipmentsContainer implements OnInit, OnDestroy {
   public formGroup = new FormGroup<CreateShipmentForm>({
     weight: new FormControl<number>(0, [Validators.required]),
     codAmount: new FormControl<number>(0, [Validators.required]),
-    customsInvoiceNumber: new FormControl<string>(''),
+    customsInvoiceNumber: new FormControl<string>('', [Validators.required]),
     customsShipmentType: new FormControl<string>('', [Validators.required]),
     senderContact: new FormGroup({
       name: new FormControl<string>('', [Validators.required]),
@@ -104,8 +75,6 @@ export class CreateShipmentsContainer implements OnInit, OnDestroy {
   private readonly subscription = new Subscription();
 
   public ngOnInit(): void {
-    this.formGroup.setValue(yeet);
-
     this.shipmentTypes = this.mapShipmenTypesToOptions();
 
     this.actOnSaveShipment();

@@ -10,7 +10,7 @@ import { SnackbarActionService } from '../../configuration/ui/snackbar/snackbar-
 import { Routes } from '../../utilities/constants';
 import { ApiPagination, ApiResult } from '../api/api-result.model';
 
-import { mapShipmentDtosToShipments } from './mappers/shipment-dto-to-shipment.mapper';
+import { mapShipmentDtosToShipments } from './mappers/shipment-dto.mapper';
 import { mapShipmentsFormToShipmentsV2Dto } from './mappers/shipments-v2.mapper';
 import { CreateShipment } from './models/shipment.form.model';
 import { ShipmentDto } from './models/shipments.dto.model';

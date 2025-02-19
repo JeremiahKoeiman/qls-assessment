@@ -9,6 +9,7 @@ import { DATETIME_FORMATS } from '@qls/utilities/i18n';
 
 import { Shipment } from '#sd/app/core/domain/shipments/models/shipments.model';
 import { ReceiverContactPipe } from '#sd/app/core/pipes/receiver-contact-to-string.pipe';
+import { Routes } from '#sd/app/core/utilities/constants';
 
 export type ShipmentTableRow = Pick<
   Shipment,
@@ -36,6 +37,7 @@ export class ShipmentsTableComponent {
    */
   @Input({ required: true }) public dataSource: ShipmentTableRow[];
 
+  public readonly routes = Routes;
   public readonly dateFormat = DATETIME_FORMATS.tableHeader;
   public readonly displayedColumns = ['trackingUrl', 'brandName', 'receiver', 'created'];
 }

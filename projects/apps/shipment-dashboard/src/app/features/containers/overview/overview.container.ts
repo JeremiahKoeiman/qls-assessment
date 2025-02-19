@@ -1,21 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatOptionModule } from '@angular/material/core';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
-import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ButtonComponent } from '@qls/components/button';
-import { CheckboxComponent } from '@qls/components/checkbox';
-import { InputComponent } from '@qls/components/input';
 import { CustomPaginatorIntl, PaginationComponent } from '@qls/components/pagination';
-import { RadioGroupComponent } from '@qls/components/radio-group';
-import { SelectComponent } from '@qls/components/select';
 import { SpinnerComponent } from '@qls/components/spinner';
-import { SwitchComponent } from '@qls/components/switch';
-import { TextareaComponent } from '@qls/components/textarea';
 import { Memoize } from '@qls/utilities/reactive';
 
 import { BehaviorSubject, Observable, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs';
@@ -40,78 +30,21 @@ import { ShipmentTableRow, ShipmentsTableComponent } from '../../components/ship
   templateUrl: './overview.container.html',
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    InputComponent,
-    TextareaComponent,
-    SelectComponent,
-    MatOptionModule,
-    MatSelectModule,
-    CheckboxComponent,
-    RadioGroupComponent,
-    SwitchComponent,
     ShipmentsTableComponent,
     TranslocoPipe,
     PaginationComponent,
     SpinnerComponent,
     ShipmentsCardsComponent,
-    MatAutocompleteModule,
     ButtonComponent
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }]
 })
 export class OverviewComponent {
-  // public readonly countries = this.mapLookupCountriesToOptionCountries(lookupCountries);
-
   private readonly router = inject(Router);
+  private readonly shipmentsService = inject(ShipmentsService);
 
   private readonly loadingSubject = new BehaviorSubject<boolean>(false);
   private readonly pageIndexSubject = new BehaviorSubject<number>(0);
-
-  private readonly shipmentsService = inject(ShipmentsService);
-
-  // public formGroup = new FormGroup({
-  //   email: new FormControl('', [Validators.required]),
-  //   area: new FormControl('', [Validators.required]),
-  //   animal: new FormControl<Animal | null>(null, Validators.required),
-  //   checkbox: new FormControl<boolean>(false),
-  //   radio: new FormControl<boolean>(false),
-  //   switch: new FormControl<boolean>(true),
-  //   countries: new FormControl<string>('')
-  // });
-
-  // public animals: Animal[] = [
-  //   { name: 'Dog', sound: 'Woof!' },
-  //   { name: 'Cat', sound: 'Meow!' },
-  //   { name: 'Cow', sound: 'Moo!' },
-  //   { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' }
-  // ];
-
-  // public radios: Radio<number>[] = [
-  //   { label: 'Radio 1', value: 1 },
-  //   { label: 'Radio 2', value: 2 },
-  //   { label: 'Radio 3', value: 3 }
-  // ];
-
-  // public mappedAnimals = this.mapAnimalsToOption(this.animals);
-
-  // private mapAnimalsToOption(animals: Animal[]): Option<Animal>[] {
-  //   return animals.map(animal => ({
-  //     label: animal.name,
-  //     value: animal
-  //   }));
-  // }
-
-  // private mapLookupCountriesToOptionCountries(countries: Country[]): Option<string>[] {
-  //   return countries.map(country => ({
-  //     label: country.country,
-  //     value: country.iso2
-  //   }));
-  // }
-
-  // public displayFn(option: Option<string>): string {
-  //   return option.label;
-  // }
 
   public navigateToCreateShipment(): void {
     this.router.navigate([Routes.SHIPMENTS, Routes.CREATE]);

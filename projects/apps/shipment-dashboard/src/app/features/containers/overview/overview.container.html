@@ -1,29 +1,9 @@
-<!-- <form [formGroup]="formGroup">
-  <qls-input [control]="formGroup.controls.email" label="Email" placeholder="Email" />
-  <qls-textarea [control]="formGroup.controls.area" label="Area" placeholder="Area" [rows]="3" />
-  <qls-select [control]="formGroup.controls.animal" [options]="mappedAnimals" label="Animals" placeholder="Animals" />
-  <qls-checkbox [control]="formGroup.controls.checkbox" label="This is a checkbox" />
-  <qls-radio-group [control]="formGroup.controls.radio" [radios]="radios" />
-  <qls-switch [control]="formGroup.controls.switch" label="This is a switch" />
-  <qls-input
-    [control]="formGroup.controls.countries"
-    label="Countries"
-    placeholder="Countries"
-    [autocomplete]="auto"
-  ></qls-input>
-  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-    @for (option of countries; track option.value) {
-    <mat-option [value]="option.value">{{ option.label }}</mat-option>
-    }
-  </mat-autocomplete>
-</form>
-
-<qls-snackbar message="This is a success snackbar" alertStyle="success" />
-<qls-snackbar message="This is a warning snackbar" alertStyle="warning" />
-<qls-snackbar message="This is a danger snackbar" alertStyle="danger" /> -->
-
 <div class="flex flex-col gap-y-6">
-  <qls-button class="w-36 self-end" [label]="'SHIPMENTS.CREATE-NEW' | transloco" (click)="navigateToCreateShipment()" />
+  <qls-button
+    class="w-36 self-end"
+    [label]="'SHIPMENTS.CREATE-NEW' | transloco"
+    (click)="navigateToCreateShipment()"
+  />
 
   @if (isLoading$ | async) {
   <div class="flex h-dvh w-full items-center justify-center">
