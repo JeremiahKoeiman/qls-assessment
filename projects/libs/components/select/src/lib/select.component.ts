@@ -4,7 +4,6 @@ import { FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/fo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BaseFormValidationHandler } from '@qls/utilities/angular';
-import { UiText, UiTextPipe } from '@qls/utilities/i18n';
 import { Memoize } from '@qls/utilities/reactive';
 import { observeProperty } from '@qls/utilities/rxjs';
 
@@ -18,7 +17,7 @@ export interface Option<T> {
 @Component({
   selector: 'qls-select',
   templateUrl: './select.component.html',
-  imports: [CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, UiTextPipe],
+  imports: [CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -32,22 +31,26 @@ export class SelectComponent<T> extends BaseFormValidationHandler {
   /**
    * The label to display
    */
-  @Input() public label: UiText;
+  @Input({ required: true }) public label: string;
 
   /**
-   * The formcontrol
+   * The formcontrol for the select component
    */
-  @Input() public control: FormControl;
+  @Input({ required: true }) public control: FormControl;
 
   /**
    * The placeholder of the input
    */
-  @Input() public placeholder?: UiText;
+  @Input() public placeholder?: string;
 
   /**
    * The options of the select
    */
   @Input({ required: true }) public options: Option<T>[] = [];
+
+  @Memoize public get label$(): Observable<string> {
+    return observeProperty(this as SelectComponent<T>, 'label').pipe(shareReplay(1));
+  }
 
   @Memoize protected get control$(): Observable<FormControl> {
     return observeProperty(this as SelectComponent<T>, 'control').pipe(shareReplay(1));

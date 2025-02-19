@@ -18,11 +18,15 @@ export abstract class BaseFormValidationHandler {
 
   @Memoize public get hasValidationErrors$(): Observable<boolean> {
     return this.control$.pipe(
-      map(control => !!(control.touched || control.errors)),
+      map(control => !!(control.touched && control.errors)),
       shareReplay(1)
     );
   }
 
+  /**
+   * If the blur$, statusChanges$ of valueChanges$ props are triggered,
+   * get and translate the potential errors on the control
+   */
   @Memoize public get errorMessage$(): Observable<string> {
     return merge(this.blur$, this.statusChanges$, this.valueChanges$).pipe(
       switchMap(() => this.control$),

@@ -1,5 +1,5 @@
 <mat-radio-group [formControl]="control" class="flex w-full flex-col gap-y-1">
-  @for (radio of radios; track radio) {
+  @for (radio of radios$ | async; track radio) {
     <mat-radio-button [value]="radio.value">{{ radio.label }}</mat-radio-button>
   }
 </mat-radio-group>

@@ -12,7 +12,8 @@
       "HEADING": "Country",
       "PLACEHOLDER": "Begin with typing... (eg. Netherlands)"
     },
-    "PHONE": "Phone number"
+    "PHONE": "Phone number",
+    "PRODUCT": "Product"
   },
   "VALIDATION": {
     "REQUIRED": "This field is required",

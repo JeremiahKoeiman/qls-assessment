@@ -1,7 +1,5 @@
 <mat-form-field appearance="outline" class="w-full">
-  @if (label) {
-    <mat-label>{{ label }}</mat-label>
-  }
+  <mat-label>{{ label$ | async }}</mat-label>
 
   <textarea
     class="resize-none"
@@ -12,7 +10,7 @@
     (blur)="handleBlur()"
   ></textarea>
 
-  @if (control.invalid) {
+  @if ((control$ | async).invalid) {
     <mat-error>{{ errorMessage$ | async }}</mat-error>
   }
 </mat-form-field>

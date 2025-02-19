@@ -1,5 +1,3 @@
-import { UiText } from '@qls/utilities/i18n';
-
 export enum SnackbarActionType {
   SUCCESS = 'success',
   WARNING = 'warning',
@@ -8,17 +6,17 @@ export enum SnackbarActionType {
 
 export interface SuccessSnackbarAction {
   type: SnackbarActionType.SUCCESS;
-  message: UiText;
+  message: string;
 }
 
 export interface WarningSnackbarAction {
   type: SnackbarActionType.WARNING;
-  message: UiText;
+  message: string;
 }
 
 export interface DangerSnackbarAction {
   type: SnackbarActionType.DANGER;
-  message: UiText;
+  message: string;
 }
 
 export type SnackbarAction = SuccessSnackbarAction | WarningSnackbarAction | DangerSnackbarAction;

@@ -26,12 +26,12 @@ export class TextareaComponent extends BaseFormValidationHandler {
   /**
    * The label to display
    */
-  @Input() public label: string;
+  @Input({ required: true }) public label: string;
 
   /**
-   * The formcontrol
+   * The formcontrol for the textarea
    */
-  @Input() public control: FormControl;
+  @Input({ required: true }) public control: FormControl;
 
   /**
    * The rows of the textarea
@@ -42,6 +42,10 @@ export class TextareaComponent extends BaseFormValidationHandler {
    * The placeholder of the input
    */
   @Input() public placeholder?: string;
+
+  @Memoize public get label$(): Observable<string> {
+    return observeProperty(this as TextareaComponent, 'label').pipe(shareReplay(1));
+  }
 
   @Memoize protected get control$(): Observable<FormControl> {
     return observeProperty(this as TextareaComponent, 'control').pipe(shareReplay(1));

@@ -1,48 +1,56 @@
 <form [formGroup]="group" class="flex flex-col rounded bg-white p-4">
   @if (heading) {
-    <h3 class="text-brand mb-8 mt-2 text-lg">{{ heading | uiText }}</h3>
+    <h3 class="text-brand mb-8 mt-2 text-lg">{{ heading | transloco }}</h3>
   }
 
   <div class="flex flex-col gap-y-3">
     <qls-input
-      label="COMMON.COMPANYNAME"
-      placeholder="COMMON.COMPANYNAME"
+      [label]="'COMMON.COMPANYNAME' | transloco"
+      [placeholder]="'COMMON.COMPANYNAME' | transloco"
       [control]="group.controls.companyname"
     />
-    <qls-input label="COMMON.NAME" placeholder="COMMON.NAME" [control]="group.controls.name" />
     <qls-input
-      label="COMMON.EMAIL-ADDRESS"
-      placeholder="COMMON.EMAIL-ADDRESS"
+      [label]="'COMMON.NAME' | transloco"
+      [placeholder]="'COMMON.NAME' | transloco"
+      [control]="group.controls.name"
+    />
+    <qls-input
+      [label]="'COMMON.EMAIL-ADDRESS' | transloco"
+      [placeholder]="'COMMON.EMAIL-ADDRESS' | transloco"
       [control]="group.controls.email"
     />
-    <qls-input label="COMMON.PHONE" placeholder="COMMON.PHONE" [control]="group.controls.phone" />
+    <qls-input
+      [label]="'COMMON.PHONE' | transloco"
+      [placeholder]="'COMMON.PHONE' | transloco"
+      [control]="group.controls.phone"
+    />
 
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <qls-input
-        label="COMMON.STREET"
-        placeholder="COMMON.STREET"
+        [label]="'COMMON.STREET' | transloco"
+        [placeholder]="'COMMON.STREET' | transloco"
         [control]="group.controls.street"
       />
       <qls-input
-        label="COMMON.HOUSENUMBER"
-        placeholder="COMMON.HOUSENUMBER"
+        [label]="'COMMON.HOUSENUMBER' | transloco"
+        [placeholder]="'COMMON.HOUSENUMBER' | transloco"
         [control]="group.controls.housenumber"
       />
       <qls-input
-        label="COMMON.POSTALCODE"
-        placeholder="COMMON.POSTALCODE"
+        [label]="'COMMON.POSTALCODE' | transloco"
+        [placeholder]="'COMMON.POSTALCODE' | transloco"
         [control]="group.controls.postalcode"
       />
       <qls-input
-        label="COMMON.LOCALITY"
-        placeholder="COMMON.LOCALITY"
+        [label]="'COMMON.LOCALITY' | transloco"
+        [placeholder]="'COMMON.LOCALITY' | transloco"
         [control]="group.controls.locality"
       />
     </div>
 
     <qls-input
-      label="COMMON.COUNTRY.HEADING"
-      placeholder="COMMON.COUNTRY.PLACEHOLDER"
+      [label]="'COMMON.COUNTRY.HEADING' | transloco"
+      [placeholder]="'COMMON.COUNTRY.PLACEHOLDER' | transloco"
       [control]="group.controls.country"
       [autocomplete]="auto"
     />

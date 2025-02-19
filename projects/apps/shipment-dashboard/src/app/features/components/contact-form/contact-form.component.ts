@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { InputComponent } from '@qls/components/input';
-import { UiText, UiTextPipe } from '@qls/utilities/i18n';
 import { Memoize } from '@qls/utilities/reactive';
 
 import { Country, countries } from 'country-code-lookup';
@@ -16,7 +16,7 @@ import { ShipmentContactForm } from '#sd/app/core/domain/shipments/models/shipme
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'sd-contact-form',
   templateUrl: './contact-form.component.html',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, UiTextPipe, InputComponent, MatAutocompleteModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslocoPipe, InputComponent, MatAutocompleteModule]
 })
 export class ContactFormComponent {
   /**
@@ -27,7 +27,7 @@ export class ContactFormComponent {
   /**
    * The heading of the form
    */
-  @Input() public heading?: UiText;
+  @Input() public heading?: string;
 
   @Memoize public get filteredCountryOptions$(): Observable<Country[]> {
     return this.group.controls.country.valueChanges.pipe(

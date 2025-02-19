@@ -104,6 +104,8 @@ export class CreateShipmentsContainer implements OnInit, OnDestroy {
   private readonly subscription = new Subscription();
 
   public ngOnInit(): void {
+    this.formGroup.setValue(yeet);
+
     this.shipmentTypes = this.mapShipmenTypesToOptions();
 
     this.actOnSaveShipment();

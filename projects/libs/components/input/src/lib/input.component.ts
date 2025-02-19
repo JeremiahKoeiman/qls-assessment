@@ -5,7 +5,6 @@ import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autoco
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BaseFormValidationHandler } from '@qls/utilities/angular';
-import { UiText, UiTextPipe } from '@qls/utilities/i18n';
 import { Memoize } from '@qls/utilities/reactive';
 import { observeProperty } from '@qls/utilities/rxjs';
 
@@ -14,7 +13,7 @@ import { Observable, shareReplay } from 'rxjs';
 @Component({
   selector: 'qls-input',
   templateUrl: './input.component.html',
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, UiTextPipe],
+  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -28,7 +27,7 @@ export class InputComponent extends BaseFormValidationHandler {
   /**
    * The label to display
    */
-  @Input({ required: true }) public label: UiText;
+  @Input({ required: true }) public label: string;
 
   /**
    * The formcontrol
@@ -43,12 +42,16 @@ export class InputComponent extends BaseFormValidationHandler {
   /**
    * The placeholder of the input
    */
-  @Input() public placeholder?: UiText;
+  @Input() public placeholder?: string;
 
   /**
    * The auto complete component that needs to be connected to the input
    */
   @Input() public autocomplete?: MatAutocomplete;
+
+  @Memoize public get label$(): Observable<string> {
+    return observeProperty(this as InputComponent, 'label').pipe(shareReplay(1));
+  }
 
   @Memoize protected get control$(): Observable<FormControl> {
     return observeProperty(this as InputComponent, 'control').pipe(shareReplay(1));

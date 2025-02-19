@@ -1,12 +1,10 @@
 <mat-form-field appearance="outline" class="w-full">
-  @if (label) {
-    <mat-label>{{ label | uiText }}</mat-label>
-  }
+  <mat-label>{{ label$ | async }}</mat-label>
 
   @if (autocomplete) {
     <input
       matInput
-      [placeholder]="placeholder | uiText"
+      [placeholder]="placeholder"
       [formControl]="control"
       [matAutocomplete]="autocomplete"
       (blur)="handleBlur()"
@@ -14,15 +12,14 @@
   } @else {
     <input
       matInput
-      [placeholder]="placeholder | uiText"
+      [placeholder]="placeholder"
       [formControl]="control"
       [type]="inputType"
       (blur)="handleBlur()"
     />
   }
-  <!-- <input matInput [placeholder]="placeholder" [formControl]="control" (blur)="handleBlur()" /> -->
 
-  @if (control.invalid) {
+  @if ((control$ | async).invalid) {
     <mat-error>{{ errorMessage$ | async }}</mat-error>
   }
 </mat-form-field>

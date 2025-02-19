@@ -2,42 +2,42 @@
   <div class="flex flex-col justify-between gap-8 md:flex-row">
     <sd-contact-form
       class="grow"
-      heading="SHIPMENTS.SENDER"
+      [heading]="'SHIPMENTS.SENDER' | transloco"
       [group]="formGroup.controls.senderContact"
     />
     <sd-contact-form
       class="grow"
-      heading="SHIPMENTS.RECEIVER"
+      [heading]="'SHIPMENTS.RECEIVER' | transloco"
       [group]="formGroup.controls.receiverContact"
     />
   </div>
 
   <div class="flex flex-col rounded bg-white p-4">
-    <h3 class="text-brand mb-8 mt-2 text-lg">Product</h3>
+    <h3 class="text-brand mb-8 mt-2 text-lg">{{ 'COMMON.PRODUCT' | transloco }}</h3>
 
     <div class="flex flex-col gap-y-4">
       <qls-input
-        label="SHIPMENTS.WEIGHT-IN-GRAMS"
-        placeholder="SHIPMENTS.WEIGHT-IN-GRAMS"
+        [label]="'SHIPMENTS.WEIGHT-IN-GRAMS' | transloco"
+        [placeholder]="'SHIPMENTS.WEIGHT-IN-GRAMS' | transloco"
         inputType="number"
         [control]="formGroup.controls.weight"
       />
       <qls-input
-        label="SHIPMENTS.COD-AMOUNT"
-        placeholder="SHIPMENTS.COD-AMOUNT"
+        [label]="'SHIPMENTS.COD-AMOUNT' | transloco"
+        [placeholder]="'SHIPMENTS.COD-AMOUNT' | transloco"
         inputType="number"
         [control]="formGroup.controls.codAmount"
       />
       <qls-input
-        label="SHIPMENTS.CUSTOMS-INVOICE-NUMBER"
-        placeholder="SHIPMENTS.CUSTOMS-INVOICE-NUMBER"
+        [label]="'SHIPMENTS.CUSTOMS-INVOICE-NUMBER' | transloco"
+        [placeholder]="'SHIPMENTS.CUSTOMS-INVOICE-NUMBER' | transloco"
         [control]="formGroup.controls.customsInvoiceNumber"
       />
       <qls-select
+        [label]="'SHIPMENTS.CUSTOMS-SHIPMENT-TYPE' | transloco"
+        [placeholder]="'SHIPMENTS.CUSTOMS-SHIPMENT-TYPE' | transloco"
         [control]="formGroup.controls.customsShipmentType"
         [options]="shipmentTypes"
-        label="SHIPMENTS.CUSTOMS-SHIPMENT-TYPE"
-        placeholder="SHIPMENTS.CUSTOMS-SHIPMENT-TYPE"
       />
     </div>
   </div>

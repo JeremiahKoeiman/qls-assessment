@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, forwardRef } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { Memoize } from '@qls/utilities/reactive';
+import { observeProperty } from '@qls/utilities/rxjs';
+
+import { Observable, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'qls-switch',
@@ -23,7 +27,11 @@ export class SwitchComponent<T> {
   @Input({ required: true }) public label: string;
 
   /**
-   * The formcontrol
+   * The formcontrol for the switch component
    */
-  @Input() public control: FormControl;
+  @Input({ required: true }) public control: FormControl;
+
+  @Memoize public get label$(): Observable<string> {
+    return observeProperty(this as SwitchComponent<T>, 'label').pipe(shareReplay(1));
+  }
 }

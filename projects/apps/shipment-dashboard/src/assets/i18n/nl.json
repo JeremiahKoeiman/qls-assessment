@@ -12,7 +12,8 @@
       "HEADING": "Land",
       "PLACEHOLDER": "Begin met typen... (vb. Netherlands)"
     },
-    "PHONE": "Telefoonnummer"
+    "PHONE": "Telefoonnummer",
+    "PRODUCT": "Product"
   },
   "VALIDATION": {
     "REQUIRED": "Dit veld is verplicht",
