@@ -10,6 +10,7 @@
 
 # Info
 
+- Don't forget to run `npm i` in the root directory to install all the dependencies
 - The `shipment-dashboard` app runs on `localhost:4200`
 - When changing the app language in the settings page, it may take a few seconds befor you see the applied change
 
