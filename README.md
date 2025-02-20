@@ -6,6 +6,13 @@
 
 2. If you have any issues when running/building the project, please delete the `.nx` and `.angular` folders. These folders contain cached data and sometimes it can cause some issues
 
+3. If for some reason the `shipment-dashboard` app doesn't want to be served, try building the compnents and utility libraries first
+
+# Info
+
+- The `shipment-dashboard` app runs on `localhost:4200`
+- When changing the app language in the settings page, it may take a few seconds befor you see the applied change
+
 # Commands
 
 This is an overview of the available commands for this project.

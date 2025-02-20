@@ -25,7 +25,8 @@
   "SIDE-BAR": {
     "SHIPMENTS": "Zendingen",
     "HOME": "Home",
-    "SETTINGS": "Instellingen"
+    "SETTINGS": "Instellingen",
+    "COMPONENTS-OVERVIEW": "Components"
   },
   "WELCOME": {
     "HEADER": "Welkom bij het zendingen dashboard!",

@@ -1,7 +1,8 @@
 export enum Routes {
   SHIPMENTS = 'shipments',
   CREATE = 'create',
-  SETTINGS = 'settings'
+  SETTINGS = 'settings',
+  COMPONENTS_OVERVIEW = 'components-overview'
 }
 
 export const languages = ['en', 'nl'] as const;

@@ -25,7 +25,8 @@
   "SIDE-BAR": {
     "SHIPMENTS": "Shipments",
     "HOME": "Home",
-    "SETTINGS": "Settings"
+    "SETTINGS": "Settings",
+    "COMPONENTS-OVERVIEW": "Components"
   },
   "WELCOME": {
     "HEADER": "Welcome to the shipment dashboard!",

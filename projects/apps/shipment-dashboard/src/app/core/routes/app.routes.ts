@@ -29,6 +29,13 @@ export const appRoutes: Route[] = [
         path: `${Routes.SETTINGS}`,
         loadComponent: () =>
           import('#sd/app/features/containers/settings/settings.container').then(c => c.SettingsContainer)
+      },
+      {
+        path: `${Routes.COMPONENTS_OVERVIEW}`,
+        loadComponent: () =>
+          import('#sd/app/features/containers/components-overview/components-overview.container').then(
+            c => c.ComponentsOverviewContainer
+          )
       }
     ]
   },
