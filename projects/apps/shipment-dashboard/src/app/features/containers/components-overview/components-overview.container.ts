@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TranslocoPipe } from '@jsverse/transloco';
 import { ButtonComponent } from '@qls/components/button';
 import { Option, SelectComponent } from '@qls/components/select';
 import { SwitchComponent } from '@qls/components/switch';
@@ -12,15 +11,7 @@ import { TextareaComponent } from '@qls/components/textarea';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'sd-components-overview',
   templateUrl: './components-overview.container.html',
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ButtonComponent,
-    TranslocoPipe,
-    SelectComponent,
-    TextareaComponent,
-    SwitchComponent
-  ]
+  imports: [CommonModule, ReactiveFormsModule, ButtonComponent, SelectComponent, TextareaComponent, SwitchComponent]
 })
 export class ComponentsOverviewContainer {
   public selectOptions: Option<string>[] = [

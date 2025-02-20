@@ -33,6 +33,12 @@
           "includePaths": ["{projectRoot}/src/styles"]
         }
       },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": ["@qls/components"]
+        }
+      ],
       "configurations": {
         "production": {
           "fileReplacements": [
